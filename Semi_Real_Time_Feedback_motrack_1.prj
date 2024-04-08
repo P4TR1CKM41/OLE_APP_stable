@@ -1,0 +1,190 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration file="C:\Users\patrickmai\Desktop\App2\Semi_Real_Time_Feedback_motrack_1.prj" location="C:\Users\patrickmai\Desktop\App2" name="Semi_Real_Time_Feedback_motrack_1" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>Semi_Real_Time_Feedback_motrack</param.appname>
+    <param.icon />
+    <param.icons />
+    <param.version>1.0</param.version>
+    <param.authnamewatermark>Mai, Bill, Kurz</param.authnamewatermark>
+    <param.email />
+    <param.company />
+    <param.summary />
+    <param.description />
+    <param.screenshot />
+    <param.guid />
+    <param.installpath.string>\Semi_Real_Time_Feedback_motrack\</param.installpath.string>
+    <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
+    <param.logo />
+    <param.install.notes />
+    <param.target.install.notes />
+    <param.intermediate>${PROJECT_ROOT}\Semi_Real_Time_Feedback_motrack_1\for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}\Semi_Real_Time_Feedback_motrack_1\for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}\Semi_Real_Time_Feedback_motrack_1\for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}\Semi_Real_Time_Feedback_motrack_1</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>true</param.windows.command.prompt>
+    <param.create.log>false</param.create.log>
+    <param.log.file />
+    <param.native.matlab>false</param.native.matlab>
+    <param.checkbox>false</param.checkbox>
+    <param.example />
+    <param.help.text>Syntax 
+	  -? 
+	 
+ Input Arguments 
+	 -?  print help on how to use the application 
+	 input arguments</param.help.text>
+    <unset>
+      <param.icon />
+      <param.icons />
+      <param.version />
+      <param.email />
+      <param.company />
+      <param.summary />
+      <param.description />
+      <param.screenshot />
+      <param.guid />
+      <param.installpath.string />
+      <param.installpath.combo />
+      <param.logo />
+      <param.install.notes />
+      <param.target.install.notes />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.logdir />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.web.mcr.name />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.windows.command.prompt />
+      <param.create.log />
+      <param.log.file />
+      <param.native.matlab />
+      <param.checkbox />
+      <param.example />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\Semi_Real_Time_Feedback_motrack.mlapp</file>
+    </fileset.main>
+    <fileset.resources>
+      <file>${PROJECT_ROOT}\add_force_force_niklas.m</file>
+      <file>${PROJECT_ROOT}\app_control.m</file>
+      <file>${PROJECT_ROOT}\app_control_motrack.asv</file>
+      <file>${PROJECT_ROOT}\app_control_motrack.m</file>
+      <file>${PROJECT_ROOT}\clean_slope_data.m</file>
+      <file>${PROJECT_ROOT}\fit_app.m</file>
+      <file>${PROJECT_ROOT}\Force_Plate_rotation.m</file>
+      <file>${PROJECT_ROOT}\get_refinfo_GUI_app.m</file>
+      <file>${PROJECT_ROOT}\get_refinfo_GUI_mat_app.m</file>
+      <file>${PROJECT_ROOT}\get_technical_frame_GUI_app.m</file>
+      <file>${PROJECT_ROOT}\getanaframe_GUI_app.m</file>
+      <file>${PROJECT_ROOT}\getANTHRO_GUI_app.m</file>
+      <file>${PROJECT_ROOT}\getContact_FP_app.m</file>
+      <file>${PROJECT_ROOT}\getderivateCOMACC3point_app.m</file>
+      <file>${PROJECT_ROOT}\getderivateCOMVEL3point_app.m</file>
+      <file>${PROJECT_ROOT}\getderivateM3point_app.m</file>
+      <file>${PROJECT_ROOT}\getderivativesvel_ap.m</file>
+      <file>${PROJECT_ROOT}\getderivativesvel_app.m</file>
+      <file>${PROJECT_ROOT}\getFPdata_MAX_OG_VS_TM_BTK_app.m</file>
+      <file>${PROJECT_ROOT}\getFPdata_MAX_OG_VS_TM_MAT_app.m</file>
+      <file>${PROJECT_ROOT}\getlabeledmarkers_GUI_app.m</file>
+      <file>${PROJECT_ROOT}\getlabeledmarkers_GUI_mat_app.m</file>
+      <file>${PROJECT_ROOT}\getR_app.m</file>
+      <file>${PROJECT_ROOT}\getR_ref_norm_app.m</file>
+      <file>${PROJECT_ROOT}\getsegmentderivatives_app.m</file>
+      <file>${PROJECT_ROOT}\getTheta_app.m</file>
+      <file>${PROJECT_ROOT}\getwinkel_app.m</file>
+      <file>${PROJECT_ROOT}\hinten_app.m</file>
+      <file>${PROJECT_ROOT}\InverseDynamik_Hof_app.m</file>
+      <file>${PROJECT_ROOT}\LICENSE.txt</file>
+      <file>${PROJECT_ROOT}\markersfilt_app.m</file>
+      <file>${PROJECT_ROOT}\precut_app.m</file>
+      <file>${PROJECT_ROOT}\README.md</file>
+      <file>${PROJECT_ROOT}\Rmean_app.m</file>
+      <file>${PROJECT_ROOT}\Semi_Real_Time_Feedback_motrack.mlapp</file>
+      <file>${PROJECT_ROOT}\Semi_Real_Time_Feedback_motrack.prj</file>
+      <file>${PROJECT_ROOT}\Semi_Real_Time_Feedback_motrack_1.prj</file>
+      <file>${PROJECT_ROOT}\spider.m</file>
+      <file>${PROJECT_ROOT}\spider_plot.m</file>
+      <file>${PROJECT_ROOT}\spider_plot_class.m</file>
+      <file>${PROJECT_ROOT}\spider_plot_class_examples.mlx</file>
+      <file>${PROJECT_ROOT}\spider_plot_errorbar2.m</file>
+      <file>${PROJECT_ROOT}\spider_plot_examples.mlx</file>
+      <file>${PROJECT_ROOT}\spider_plot_R2019b.m</file>
+      <file>${PROJECT_ROOT}\spider_plot_R2019b_examples.mlx</file>
+      <file>${PROJECT_ROOT}\SVDopti_app.m</file>
+      <file>${PROJECT_ROOT}\Vmean_app.m</file>
+      <file>${PROJECT_ROOT}\vorne_app.m</file>
+    </fileset.resources>
+    <fileset.package />
+    <fileset.depfun>
+      <file>C:\OpenSimTool-master\MainFun\niceGroupPlot-master\niceGroupPlot\EssentialCode_addtopath\notBoxPlot\code\+NBP\SEM_calc.m</file>
+      <file>C:\OpenSimTool-master\MainFun\niceGroupPlot-master\niceGroupPlot\EssentialCode_addtopath\notBoxPlot\code\+NBP\tInterval_calc.m</file>
+      <file>C:\OpenSimTool-master\MainFun\niceGroupPlot-master\niceGroupPlot\EssentialCode_addtopath\notBoxPlot\code\notBoxPlot.m</file>
+      <file>C:\OpenSimTool-master\MainFun\Shared\btk\btkGetForcePlatforms.mexw64</file>
+      <file>C:\OpenSimTool-master\MainFun\Shared\btk\btkGetForcePlatformWrenches.mexw64</file>
+      <file>C:\OpenSimTool-master\MainFun\Shared\btk\btkReadAcquisition.mexw64</file>
+      <file>C:\OpenSimTool-master\MainFun\Shared\getdistance.m</file>
+      <file>C:\OpenSimTool-master\MainFun\Shared\normalize_vector.m</file>
+      <file>C:\OpenSimTool-master\MainFun\Shared\Rmean.m</file>
+      <file>C:\OpenSimTool-master\MainFun\Shared\v3dlaenge.m</file>
+      <file>C:\OpenSimTool-master\MainFun\Visualize\stan_plot_generell.m</file>
+      <file>C:\Users\patrickmai\Desktop\Motrack\Assign_Treadmill_Forces\filtfilt.m</file>
+      <file>C:\Users\patrickmai\Desktop\Motrack\C3D\c3dserver.m</file>
+      <file>C:\Users\patrickmai\Desktop\Motrack\C3D\closec3d.m</file>
+      <file>C:\Users\patrickmai\Desktop\Motrack\C3D\openc3d.m</file>
+      <file>C:\Users\patrickmai\Desktop\Motrack\Filter_ECCO.m</file>
+      <file>C:\Users\patrickmai\Desktop\Motrack\fit.m</file>
+      <file>C:\Users\patrickmai\Desktop\Motrack\fit_n.m</file>
+      <file>C:\Users\patrickmai\Desktop\Motrack\getContact_FP.m</file>
+      <file>C:\Users\patrickmai\Desktop\Motrack\Tools\Marker_rekonstruieren\deleteblank.m</file>
+    </fileset.depfun>
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}\Semi_Real_Time_Feedback_motrack_1\for_testing" name="splash.png" optional="false">C:\Users\patrickmai\Desktop\App2\Semi_Real_Time_Feedback_motrack_1\for_testing\splash.png</file>
+      <file location="${PROJECT_ROOT}\Semi_Real_Time_Feedback_motrack_1\for_testing" name="Semi_Real_Time_Feedback_motrack.exe" optional="false">C:\Users\patrickmai\Desktop\App2\Semi_Real_Time_Feedback_motrack_1\for_testing\Semi_Real_Time_Feedback_motrack.exe</file>
+      <file location="${PROJECT_ROOT}\Semi_Real_Time_Feedback_motrack_1\for_testing" name="readme.txt" optional="true">C:\Users\patrickmai\Desktop\App2\Semi_Real_Time_Feedback_motrack_1\for_testing\readme.txt</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2021b</root>
+      <toolboxes>
+        <toolbox name="neuralnetwork" />
+      </toolboxes>
+      <toolbox>
+        <neuralnetwork>
+          <enabled>true</enabled>
+        </neuralnetwork>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

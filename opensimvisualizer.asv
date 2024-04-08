@@ -1,0 +1,63 @@
+function  opensimvisualizer(modelpath,ik_path)
+import org.opensim.modeling.*
+visualizer_path = ('C:\OpenSim 4.3\Geometry'); % set the geometry path depending on the OS version
+ModelVisualizer.addDirToGeometrySearchPaths(visualizer_path);
+myModel = Model(modelpath) ;
+myModel.initSystem();
+table = TimeSeriesTable(ik_path);
+ModelVisualizer.addDirToGeometrySearchPaths(visualizer_path);
+try
+    VisualizerUtilities.showMotion(myModel, table);
+catch
+    VisualizerUtilities.showModel(myModel)
+end
+
+%%
+
+% Load OpenSim libraries
+import org.opensim.modeling.*
+
+% Set path to OpenSim geometry folder
+visualizer_path = 'C:\OpenSim 4.3\Geometry'; 
+
+% Load model
+model = Model(modelpath);
+
+% Initialize model
+model.initSystem();
+
+% Load IK results table
+ik_results = TimeSeriesTable(ik_path); 
+
+% Create model visualizer
+viz = ModelVisualizer(model);
+
+% Set background to black
+viz.setBackgroundColor([0 0 0]);
+
+% Create a state for visualization
+state = model.initSystem();
+
+% Load model to state
+state.setTime(0);
+state.setStates(ik_results.getDependentColumn());
+
+% Show model animation
+viz.show(state);
+
+% Animate through results
+for i = 1:ik_results.getNumRows()
+
+    % Advance model to next state
+    state.setTime(ik_results.getIndependentColumn().get(i-1)); 
+    state.setStates(ik_results.getRowAtIndex(i-1));
+    
+    % Update visualization
+    viz.show(state);
+
+    % Slow animation rate
+    pause(0.1); 
+
+end
+%%
+end

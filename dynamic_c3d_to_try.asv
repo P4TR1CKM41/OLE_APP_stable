@@ -1,0 +1,37 @@
+function [ftkratio, TRC_FILE, MOT_FILE, Y, Y_kinematic, markerStruct, force]=dynamic_c3d_to_try(path, cut, FP_used)
+tic
+%% Cut
+acq = btkReadAcquisition(path);
+pf = btkGetPointFrequency(acq);
+af = btkGetAnalogFrequency(acq);
+
+ftkratio = af/pf;
+fpw = btkGetForcePlatformWrenches(acq, 1);
+verticalgrf = fpw(FP_used).F(:,3);
+Y = getContact_FP_app(verticalgrf', 40);
+Y_kinematic = unique(fix(Y/ftkratio));
+td_analog = Y(1);
+to_analog = Y(end);
+ff = btkGetFirstFrame(acq);
+td_kinematic =fix( Y(1)/ftkratio);
+to_kinematic =fix(Y(end)/ftkratio);
+btkCropAcquisition(acq, ff+(td_kinematic-20), (to_kinematic-(td_kinematic-20))+20)
+btkWriteAcquisition(acq, path)
+btkCloseAcquisition(acq)
+
+% fill gaps (todo)
+
+
+%% Convert to trc file
+c3d = osimC3D(path,1);
+c3d.rotateData('x',-90)
+c3d.convertMillimeters2Meters();
+[markerStruct, forcesStruct] = c3d.getAsStructs()
+
+c3d.writeTRC([erase(path, '.c3d'), '.trc']);
+c3d.writeMOT([erase(path, '.c3d'), '.mot']);
+TRC_FILE = [erase(path, '.c3d'), '.trc'];
+MOT_FILE = [erase(path, '.c3d'), '.mot'];
+
+toc
+end
