@@ -141,6 +141,8 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                 errordlg (ME.message);
             end
             if DATA.OPTIONS.FOOT_IN_FP.(trialname)==1
+                %% try to load a existing mat file since the user may has delete trials in the dasboarh TODO
+                % load([app.FoldertomonitorEditField.Value,'/' ,app.IDEditField.Value,'.mat']);
                 %% IK
                 [DATA.OPTIONS.PATHS.IK.(trialname)]=IK_app(DATA.OPTIONS.PATHS.TRC.(trialname),app.FoldertomonitorEditField.Value);
                 %% ID
@@ -279,7 +281,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                     DATA.OPTIONS.ERROR_REASON.(trialname) = 'none';
                     DATA.OPTIONS.WAS_VALID.(trialname)  =1;
                 end
-                
+                DATA.OPTIONS.MAT_FILE_LOCATION = [app.FoldertomonitorEditField.Value,'/' ,app.IDEditField.Value,'.mat'];
                 %% save the results in mat structure
                 save([app.FoldertomonitorEditField.Value,'/' ,app.IDEditField.Value,'.mat'], '-struct', 'DATA');
                 up = up+1;
