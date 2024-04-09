@@ -333,16 +333,8 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
         pause(0.000001)
     end
     stop_dyn_loop = strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.SelectedObject.Value ==0);
-    pause(0.001)
+    pause(0.000001)
     if stop_dyn_loop ==1
-        %% push the mat file to processed
-        try
-            mkdir ([app.storageglobal_path, '/', 'Processed'])
-            copyfile([app.FoldertomonitorEditField.Value,'/' ,app.IDEditField.Value,'.mat'], [app.FoldertomonitorEditField.Value, '/', 'Processed']);
-            pause(0.01)
-            delete ([app.FoldertomonitorEditField.Value,'/' ,app.IDEditField.Value,'.mat']);
-        catch
-        end
         break;
     end
 end
