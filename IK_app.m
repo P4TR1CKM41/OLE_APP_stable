@@ -1,4 +1,4 @@
-function [IK_results_path]=IK_app(TRC_FILE,path)
+function [IK_results_path, run_time]=IK_app(TRC_FILE,path)
 tic
 import org.opensim.modeling.*
 trialname = erase(erase(TRC_FILE, [path,'/']), '.trc');
@@ -22,5 +22,5 @@ ikTool.setOutputMotionFileName([path,  '\IK_RESULTS_',trialname,'.mot']);
 ikTool.print( [path,  '\','Setup_IK_' ,trialname, '.xml']);
 ikTool.run();
 IK_results_path = [path,  '\IK_RESULTS_',trialname,'.mot'];
-toc
+run_time =  toc;
 end

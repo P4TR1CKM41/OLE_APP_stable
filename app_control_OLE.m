@@ -38,6 +38,7 @@ DATA.OPTIONS.SETTINGS = app.SetupDropDown.Value;
 [~, ~, DATA.OPTIONS.MARKER_SETUP.FOOT] = xlsread('Marker_for_segments_v3.xlsx','FOOT');
 [~, ~, DATA.OPTIONS.MARKER_SETUP.MTP] = xlsread('Marker_for_segments_v3.xlsx','MTP');
 [~, ~, DATA.OPTIONS.MARKER_SETUP.DISTAL] = xlsread('Marker_for_segments_v3.xlsx','DISTAL_Marker');
+[~, ~, DATA.OPTIONS.MARKER_SETUP.TORSO] = xlsread('Marker_for_segments_v3.xlsx','TORSO');
 go_out=0;
 %% search all the time for a static until it was found
 while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.SelectedObject.Value ==1)
@@ -68,15 +69,6 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
             else
             end
             pause(2)
-            % % % % if length(ExistentMarkers)~=80;
-            % % % %     app.Label.Text = 'Static found BUT';
-            % % % %     app.Label.FontColor = [1 0.5 0];
-            % % % %     pause(0.000001)
-            % % % %     go_out = 1;
-            % % % %     fstatic = msgbox(["Static processed but ", num2str(length(ExistentMarkers)) ,"from 80 Markers where found. Static is still used but problems in dynamic files may come up!"],"Error","error");
-            % % % % else
-            % % % %     go_out = 1;
-            % % % % end
         else
         end
     end
@@ -106,7 +98,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
     if ~isempty(fileList_cells)
         close all
         pause(2)
-        tic
+        start_time = tic;
         trialname = matlab.lang.makeValidName(erase((fileList_cells{1, dy}),  app.File2scanDropDown.Value));
         choice = questdlg(['Do you want to process ',(fileList_cells{1, dy}),'?'], ...
             'Confirmation', ...
@@ -120,7 +112,6 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
             else
                 up = 1;
             end
-
             DATA.OPTIONS.ForcePlateNumber.(trialname) = str2double(app.FPuseDropDown.Value);
             DATA.OPTIONS.LEG_ANALYZED.(trialname) =app.Leg2AnalyzeDropDown.Value;
             path_to_dyn = [app.storageglobal_path, '/', (fileList_cells{1, dy})];
@@ -129,7 +120,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
             pause(0.0000000000001)
             %% Cut, fill, create trc and mot
             try
-                [DATA.OPTIONS.ftkratio, DATA.OPTIONS.PATHS.TRC.(trialname), DATA.OPTIONS.PATHS.MOT.(trialname), DATA.CONTACT_ANALOG.(trialname), DATA.CONTACT_KINEMATIC.(trialname), DATA.MARKERS.(trialname), DATA.GRF.(trialname), DATA.OPTIONS.FREQ_KINEMATIC, DATA.OPTIONS.FREQ_ANALOG, DATA.OPTIONS.FP_CORNERS.(trialname), markers_from_c3d, DATA.markers_from_c3d_filt.(trialname)] = dynamic_c3d_to_try(path_to_dyn, app.CutfilesCheckBox.Value, DATA.OPTIONS.ForcePlateNumber.(trialname), app.NEditField.Value);
+                [DATA.OPTIONS.ftkratio, DATA.OPTIONS.PATHS.TRC.(trialname), DATA.OPTIONS.PATHS.MOT.(trialname), DATA.CONTACT_ANALOG.(trialname), DATA.CONTACT_KINEMATIC.(trialname), DATA.MARKERS.(trialname), DATA.GRF.(trialname), DATA.OPTIONS.FREQ_KINEMATIC, DATA.OPTIONS.FREQ_ANALOG, DATA.OPTIONS.FP_CORNERS.(trialname), markers_from_c3d, DATA.markers_from_c3d_filt.(trialname),run_time(1,1)] = dynamic_c3d_to_try(path_to_dyn, app.CutfilesCheckBox.Value, DATA.OPTIONS.ForcePlateNumber.(trialname), app.NEditField.Value, DATA.OPTIONS.SETTINGS  );
             catch
                 DATA.OPTIONS.FOOT_IN_FP.(trialname) =0;
                 DATA.OPTIONS.ERROR_REASON.(trialname) = 'convert';
@@ -141,6 +132,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
             %% Check if foot is on FP
             try
                 [DATA.OPTIONS.FOOT_IN_FP.(trialname)] = is_foot_on_force_plate_fun(DATA.OPTIONS.MARKER_SETUP, DATA.OPTIONS.SETTINGS, DATA.OPTIONS.FP_CORNERS.(trialname), DATA.CONTACT_KINEMATIC.(trialname)(1),DATA.CONTACT_ANALOG.(trialname)(1), markers_from_c3d,DATA.OPTIONS.LEG_ANALYZED.(trialname) );
+                
             catch ME
                 %% remove previously written field from struct because of the error
                 DATA.OPTIONS.LEG_ANALYZED = rmfield( DATA.OPTIONS.LEG_ANALYZED, (trialname));
@@ -151,11 +143,11 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
             end
             if DATA.OPTIONS.FOOT_IN_FP.(trialname)==1
                 %% IK
-                [DATA.OPTIONS.PATHS.IK.(trialname)]=IK_app(DATA.OPTIONS.PATHS.TRC.(trialname),app.FoldertomonitorEditField.Value);
+                [DATA.OPTIONS.PATHS.IK.(trialname), run_time(1,2)]=IK_app(DATA.OPTIONS.PATHS.TRC.(trialname),app.FoldertomonitorEditField.Value);
                 %% ID
-                [DATA.OPTIONS.PATHS.ID.(trialname)] = ID_app(DATA.OPTIONS.PATHS.MOT.(trialname),DATA.OPTIONS.PATHS.TRC.(trialname),app.FoldertomonitorEditField.Value, DATA.OPTIONS.PATHS.IK.(trialname), DATA.OPTIONS.LEG_ANALYZED.(trialname), DATA.OPTIONS.ForcePlateNumber.(trialname) );
+                [DATA.OPTIONS.PATHS.ID.(trialname), run_time(1,3)] = ID_app(DATA.OPTIONS.PATHS.MOT.(trialname),DATA.OPTIONS.PATHS.TRC.(trialname),app.FoldertomonitorEditField.Value, DATA.OPTIONS.PATHS.IK.(trialname), DATA.OPTIONS.LEG_ANALYZED.(trialname), DATA.OPTIONS.ForcePlateNumber.(trialname) );
                 %% Body kinematics
-                [DATA.OPTIONS.PATHS.BK_ACC.(trialname), DATA.OPTIONS.PATHS.BK_VEL.(trialname),DATA.OPTIONS.PATHS.BK_POS.(trialname)] = on_Bodykinematics(DATA.OPTIONS.PATHS.IK.(trialname),DATA.OPTIONS.PATH.SCALED_MODEL, app.FoldertomonitorEditField.Value, app.IDEditField.Value, trialname);
+                [DATA.OPTIONS.PATHS.BK_ACC.(trialname), DATA.OPTIONS.PATHS.BK_VEL.(trialname),DATA.OPTIONS.PATHS.BK_POS.(trialname), run_time(1,4)] = on_Bodykinematics(DATA.OPTIONS.PATHS.IK.(trialname),DATA.OPTIONS.PATH.SCALED_MODEL, app.FoldertomonitorEditField.Value, app.IDEditField.Value, trialname);
                 %% TODO make automatic choose the correct marker index_in_marker_set_file_excel
                 if  strcmp(lower(app.Leg2AnalyzeDropDown.Value(1)), 'l') ==1
                     multi = -1;
@@ -226,7 +218,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                 %% Cutting Angle
                 DATA.PARAMETERS.CuttingAngle(1,up)  = acosd (dot([DATA.BK_VEL_TABLE.(trialname).center_of_mass_X( DATA.CONTACT_KINEMATIC.(trialname)(1)),DATA.BK_VEL_TABLE.(trialname).center_of_mass_Z(DATA.CONTACT_KINEMATIC.(trialname)(1))], [DATA.BK_VEL_TABLE.(trialname).center_of_mass_X(DATA.CONTACT_KINEMATIC.(trialname)(end)),DATA.BK_VEL_TABLE.(trialname).center_of_mass_Z(DATA.CONTACT_KINEMATIC.(trialname)(end))]) / ((norm([DATA.BK_VEL_TABLE.(trialname).center_of_mass_X(DATA.CONTACT_KINEMATIC.(trialname)(1)),DATA.BK_VEL_TABLE.(trialname).center_of_mass_Z(DATA.CONTACT_KINEMATIC.(trialname)(1))])*norm([DATA.BK_VEL_TABLE.(trialname).center_of_mass_X(DATA.CONTACT_KINEMATIC.(trialname)(end)),DATA.BK_VEL_TABLE.(trialname).center_of_mass_Z(DATA.CONTACT_KINEMATIC.(trialname)(end))]))));
                 %% Trunk lean
-                [a1,b1,c1,d1] = get_plane_equation_from_four_markers(DATA.markers_from_c3d_filt.(trialname).C7(DATA.CONTACT_KINEMATIC.(trialname)(1),:), DATA.markers_from_c3d_filt.(trialname).STERNUM(DATA.CONTACT_KINEMATIC.(trialname)(1),:), DATA.markers_from_c3d_filt.(trialname).T6(DATA.CONTACT_KINEMATIC.(trialname)(1),:),DATA.markers_from_c3d_filt.(trialname).XYPHOID(DATA.CONTACT_KINEMATIC.(trialname)(1),:));
+                [a1,b1,c1,d1] = get_plane_equation_from_four_markers(DATA.markers_from_c3d_filt.(trialname).(DATA.OPTIONS.MARKER_SETUP.TORSO{index_in_marker_set_file_excel,2})(DATA.CONTACT_KINEMATIC.(trialname)(1),:), DATA.markers_from_c3d_filt.(trialname).STERNUM(DATA.CONTACT_KINEMATIC.(trialname)(1),:), DATA.markers_from_c3d_filt.(trialname).(DATA.OPTIONS.MARKER_SETUP.TORSO{index_in_marker_set_file_excel,3})(DATA.CONTACT_KINEMATIC.(trialname)(1),:),DATA.markers_from_c3d_filt.(trialname).(DATA.OPTIONS.MARKER_SETUP.TORSO{index_in_marker_set_file_excel,4})(DATA.CONTACT_KINEMATIC.(trialname)(1),:));
                 [a2,b2,c2,d2] = get_plane_equation_from_four_markers(DATA.OPTIONS.FP_CORNERS.(trialname)(:,1)',DATA.OPTIONS.FP_CORNERS.(trialname)(:,2)',DATA.OPTIONS.FP_CORNERS.(trialname)(:,3)',DATA.OPTIONS.FP_CORNERS.(trialname)(:,4)');
                 [DATA.PARAMETERS.TRUNK_LEAN_AT_IC(1,up)] = get_angle_between_two_planes([a1,b1,c1,d1],[a2,b2,c2,d2]);
                 DATA.PARAMETERS.TRUNK_LEAN_AT_IC(1,up) = 90-DATA.PARAMETERS.TRUNK_LEAN_AT_IC(1,up)*multi;
@@ -254,7 +246,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                 [ DATA.PARAMETERS.FOOT_PROGRESSION_ANGLE(1,up)] = foot_progression_angle_fun_new(DATA.markers_from_c3d_filt.(trialname).(marker3)(DATA.CONTACT_KINEMATIC.(trialname)(1),:),DATA.MIDPOINT_MTP.(trialname)(DATA.CONTACT_KINEMATIC.(trialname)(1),:), [DATA.BK_VEL_TABLE.(trialname).center_of_mass_X(DATA.CONTACT_KINEMATIC.(trialname)(1)), DATA.BK_VEL_TABLE.(trialname).center_of_mass_Y(DATA.CONTACT_KINEMATIC.(trialname)(1)),DATA.BK_VEL_TABLE.(trialname).center_of_mass_Z(DATA.CONTACT_KINEMATIC.(trialname)(1))],0);
                 DATA.PARAMETERS.FOOT_PROGRESSION_ANGLE(1,up) =  DATA.PARAMETERS.FOOT_PROGRESSION_ANGLE(1,up)*multi2;
                 %% Trunk Rotation
-                [ DATA.PARAMETERS.TRUNK_ROTATION_AT_IC(1,up)] = torso_progression_angle_fun_new(DATA.markers_from_c3d_filt.(trialname).T6(DATA.CONTACT_KINEMATIC.(trialname)(1),:),DATA.markers_from_c3d_filt.(trialname).XYPHOID(DATA.CONTACT_KINEMATIC.(trialname)(1),:), [DATA.BK_VEL_TABLE.(trialname).center_of_mass_X(DATA.CONTACT_KINEMATIC.(trialname)(1)), DATA.BK_VEL_TABLE.(trialname).center_of_mass_Y(DATA.CONTACT_KINEMATIC.(trialname)(1)),DATA.BK_VEL_TABLE.(trialname).center_of_mass_Z(DATA.CONTACT_KINEMATIC.(trialname)(1))],0);
+                [ DATA.PARAMETERS.TRUNK_ROTATION_AT_IC(1,up)] = torso_progression_angle_fun_new(DATA.markers_from_c3d_filt.(trialname).(DATA.OPTIONS.MARKER_SETUP.TORSO{index_in_marker_set_file_excel,3})(DATA.CONTACT_KINEMATIC.(trialname)(1),:),DATA.markers_from_c3d_filt.(trialname).(DATA.OPTIONS.MARKER_SETUP.TORSO{index_in_marker_set_file_excel,4})(DATA.CONTACT_KINEMATIC.(trialname)(1),:), [DATA.BK_VEL_TABLE.(trialname).center_of_mass_X(DATA.CONTACT_KINEMATIC.(trialname)(1)), DATA.BK_VEL_TABLE.(trialname).center_of_mass_Y(DATA.CONTACT_KINEMATIC.(trialname)(1)),DATA.BK_VEL_TABLE.(trialname).center_of_mass_Z(DATA.CONTACT_KINEMATIC.(trialname)(1))],0);
                 DATA.PARAMETERS.TRUNK_ROTATION_AT_IC(1,up) = DATA.PARAMETERS.TRUNK_ROTATION_AT_IC(1,up)*multi2;
                 %% Cut Width TODO
                 %[DATA.PARAMETERS.CUT_WIDTH(1,up)] = cut_width_fun( [DATA.GRF_TABLE.(trialname).(['ground_force_',num2str(DATA.OPTIONS.ForcePlateNumber.(trialname)),'_px'])(DATA.CONTACT_ANALOG.(trialname)(1)),DATA.GRF_TABLE.(trialname).(['ground_force_',num2str(DATA.OPTIONS.ForcePlateNumber.(trialname)),'_py'])(DATA.CONTACT_ANALOG.(trialname)(1)),DATA.GRF_TABLE.(trialname).(['ground_force_',num2str(DATA.OPTIONS.ForcePlateNumber.(trialname)),'_pz'])(DATA.CONTACT_ANALOG.(trialname)(1))],[DATA.BK_POS_TABLE.(trialname).center_of_mass_X(DATA.CONTACT_KINEMATIC.(trialname)(1)), DATA.BK_POS_TABLE.(trialname).center_of_mass_Y(DATA.CONTACT_KINEMATIC.(trialname)(1)),DATA.BK_POS_TABLE.(trialname).center_of_mass_Z(DATA.CONTACT_KINEMATIC.(trialname)(1))],[DATA.BK_VEL_TABLE.(trialname).center_of_mass_X(DATA.CONTACT_KINEMATIC.(trialname)(1)), DATA.BK_VEL_TABLE.(trialname).center_of_mass_Y(DATA.CONTACT_KINEMATIC.(trialname)(1)),DATA.BK_VEL_TABLE.(trialname).center_of_mass_Z(DATA.CONTACT_KINEMATIC.(trialname)(1))]);
@@ -274,6 +266,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                     DATA.OPTIONS.ERROR_REASON.(trialname) = 'none';
                     DATA.OPTIONS.WAS_VALID.(trialname)  =1;
                 end
+                DATA.PARAMETERS.PROCESSING_TIME(1,up) = sum(run_time)+toc;
                 DATA.OPTIONS.MAT_FILE_LOCATION = [app.FoldertomonitorEditField.Value,'/' ,app.IDEditField.Value,'.mat'];
                 %% save the results in mat structure
                 save([app.FoldertomonitorEditField.Value,'/' ,app.IDEditField.Value,'.mat'], '-struct', 'DATA');

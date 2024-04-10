@@ -1,5 +1,6 @@
-function [ftkratio, TRC_FILE, MOT_FILE, Y, Y_kinematic, markerStruct, forcesStruct, pf, af, FP_Corner_Points_of_FP_used, markers_from_c3d, markers_from_c3d_filt]=dynamic_c3d_to_try(path, cut, FP_used, threshold)
+function [ftkratio, TRC_FILE, MOT_FILE, Y, Y_kinematic, markerStruct, forcesStruct, pf, af, FP_Corner_Points_of_FP_used, markers_from_c3d, markers_from_c3d_filt, run_time]=dynamic_c3d_to_try(path, cut, FP_used, threshold, setup_Identifier)
 %% Cut
+tic
 acq = btkReadAcquisition(path);
 pf = btkGetPointFrequency(acq);
 af = btkGetAnalogFrequency(acq);
@@ -21,6 +22,7 @@ if cut ==1
 end
 [markers, markersInfo, markersResidual] = btkGetMarkers(acq);
 markernames = fieldnames (markers);
+
 try %% add force plate corners as markers
     [forceplates, forceplatesInfo] = btkGetForcePlatforms(acq);
     for cp = 1 : length({forceplates.corners})
@@ -31,15 +33,19 @@ try %% add force plate corners as markers
     end
 catch
 end
-try %% remove vicon random makers
-    [markers, markersInfo, markersResidual] = btkGetMarkers(acq);
-    markernames = fieldnames (markers);
-    idxrm = sort(find(contains(markernames, 'C_')), 'descend');
-    for i = 1 : length(idxrm)
-        [points, pointsInfo] = btkRemovePoint(acq, idxrm(i));
+
+if strcmp(setup_Identifier, 'CALGARY') ==1
+    try %% remove vicon random makers
+        [markers, markersInfo, markersResidual] = btkGetMarkers(acq);
+        markernames = fieldnames (markers);
+        idxrm = sort(find(contains(markernames, 'C_')), 'descend');
+        for i = 1 : length(idxrm)
+            [points, pointsInfo] = btkRemovePoint(acq, idxrm(i));
+        end
+        % btkWriteAcquisition(acq, path)
+    catch
     end
-    % btkWriteAcquisition(acq, path)
-catch
+else
 end
 
 
@@ -73,4 +79,5 @@ c3d.writeTRC([erase(path, '.c3d'), '.trc']);
 c3d.writeMOT([erase(path, '.c3d'), '.mot']);
 TRC_FILE = [erase(path, '.c3d'), '.trc'];
 MOT_FILE = [erase(path, '.c3d'), '.mot'];
+run_time = toc; 
 end

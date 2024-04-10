@@ -1,6 +1,6 @@
-function [ACC, VEL, POS] = on_Bodykinematics(fullpathIKFile,modelpath, scanfolderrpath, ID, trialName)
+function [ACC, VEL, POS, run_time] = on_Bodykinematics(fullpathIKFile,modelpath, scanfolderrpath, ID, trialName)
+tic
 import org.opensim.modeling.*
-
 model = Model(modelpath); % location of the scaled model
 model.initSystem();
 
@@ -32,4 +32,5 @@ analyzeTool.run();
 ACC = [scanfolderrpath,'/BODYKIN_RESULTS_',trialName, '_BodyKinematics_acc_global.sto'];
 VEL = [scanfolderrpath,'/BODYKIN_RESULTS_',trialName, '_BodyKinematics_vel_global.sto'];
 POS = [scanfolderrpath,'/BODYKIN_RESULTS_',trialName, '_BodyKinematics_pos_global.sto'];
+run_time = toc; 
 end

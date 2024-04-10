@@ -1,4 +1,4 @@
-function [ID_RESULTS_PATH]=ID_app(MOT_FILE,TRC_FILE, path, IK_results_path, leg, FP_used)
+function [ID_RESULTS_PATH, run_time]=ID_app(MOT_FILE,TRC_FILE, path, IK_results_path, leg, FP_used)
 tic
 import org.opensim.modeling.*
 
@@ -77,5 +77,5 @@ outfileID = [path, '/Setup_ID_' trialname '.xml' ];
 idTool.print(outfileID);
 idTool.run();
 
-toc
+run_time =  toc;
 end
