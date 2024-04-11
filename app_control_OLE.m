@@ -15,7 +15,7 @@ DATA.OPTIONS.ForceTreshold= app.NEditField.Value;
 DATA.OPTIONS.FILEFORMAT = app.File2scanDropDown.Value;
 DATA.OPTIONS.mass = app.MassKgEditField.Value;
 DATA.OPTIONS.Height= app.HeightcmEditField.Value/100;
-DATA.OPTIONS.ANTRO.mass = DATA.OPTIONS.mass ;
+DATA.OPTIONS.ANTRO.mass = app.MassKgEditField.Value; %DATA.OPTIONS.mass ;
 DATA.OPTIONS.ANTRO.height = DATA.OPTIONS.Height;
 DATA.OPTIONS.INFO.PreviousACL = app.ACLInjuryYearEditField.Value;
 DATA.OPTIONS.INFO.InterventionGroup =app.InterventionEditField.Value;
@@ -39,6 +39,12 @@ DATA.OPTIONS.SETTINGS = app.SetupDropDown.Value;
 [~, ~, DATA.OPTIONS.MARKER_SETUP.MTP] = xlsread('Marker_for_segments_v3.xlsx','MTP');
 [~, ~, DATA.OPTIONS.MARKER_SETUP.DISTAL] = xlsread('Marker_for_segments_v3.xlsx','DISTAL_Marker');
 [~, ~, DATA.OPTIONS.MARKER_SETUP.TORSO] = xlsread('Marker_for_segments_v3.xlsx','TORSO');
+[~, ~, DATA.OPTIONS.MARKER_SETUP.MARKERSREQUIRED] = xlsread('Marker_for_segments_v3.xlsx','MARKERSREQUIRED');
+[~, ~, DATA.OPTIONS.MARKER_SETUP.R_FEMUR] = xlsread('Marker_for_segments_v3.xlsx','R_FEMUR');
+[~, ~, DATA.OPTIONS.MARKER_SETUP.L_FEMUR] = xlsread('Marker_for_segments_v3.xlsx','L_FEMUR');
+[~, ~, DATA.OPTIONS.MARKER_SETUP.R_TIBIA] = xlsread('Marker_for_segments_v3.xlsx','R_TIBIA');
+[~, ~, DATA.OPTIONS.MARKER_SETUP.L_TIBIA] = xlsread('Marker_for_segments_v3.xlsx','L_TIBIA');
+[~, ~, DATA.OPTIONS.MARKER_SETUP.HEAD] = xlsread('Marker_for_segments_v3.xlsx','HEAD');
 go_out=0;
 %% search all the time for a static until it was found
 while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.SelectedObject.Value ==1)
@@ -49,7 +55,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
         if staticfound >= 1 % if static found
             app.Label.Text = 'Found static';
             app.Label.FontColor = [0 0.5 0];
-            pause(0.0001) % pause needed to update the GUI
+            pause(0.0001)
             path_to_static = [app.storageglobal_path, '/', (fileList_cells{1, st})];
             if strcmp(app.File2scanDropDown.Value, '.c3d') ==1 % found a file that mached the ref identifier
                 %% c3d file to trc static
@@ -60,13 +66,13 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                 app.MassKgEditField.FontColor = [0,1,0];
                 %% Start the scaling in opensim
                 trc_file = split (path_to_static, '/'); % improve
-                trc_file = replace (trc_file{end, 1}, '.c3d', '.trc'); % improve
-                [DATA.OPTIONS.PATH.SCALED_MODEL, DATA.OPTIONS.STATIC_PATH.IK_res_static, DATA.OPTIONS.STATIC_ANGLES.IK_res_static]=scaling_OLE_app(replace (path_to_static, '.c3d', '.trc'),  app.IDEditField.Value, app.FoldertomonitorEditField.Value, trc_file,DATA.OPTIONS.PATH.GENERIC_MODEL, DATA.OPTIONS.GENERIC.markersetname, DATA.OPTIONS.GENERIC.scalesetupname, DATA.OPTIONS);
+                trc_file = replace (trc_file{end, 1}, app.File2scanDropDown.Value, '.trc');
+                [DATA.OPTIONS.PATH.SCALED_MODEL, DATA.OPTIONS.STATIC_PATH.IK_res_static, DATA.OPTIONS.STATIC_ANGLES.IK_res_static, DATA.OPTIONS.SCALING_TIME]=scaling_OLE_app(replace (path_to_static, '.c3d', '.trc'),  app.IDEditField.Value, app.FoldertomonitorEditField.Value, trc_file,DATA.OPTIONS.PATH.GENERIC_MODEL, DATA.OPTIONS.GENERIC.markersetname, DATA.OPTIONS.GENERIC.scalesetupname, DATA.OPTIONS);
                 %% this function will call the scaled opensim model and ajust the joint angles according to the IK of the static file
                 ajust_scaled_model_joint_angles(DATA.OPTIONS.PATH.SCALED_MODEL, DATA.OPTIONS.STATIC_PATH.IK_res_static, DATA.OPTIONS.STATIC_ANGLES.IK_res_static)
                 %opensimvisualizer(DATA.OPTIONS.PATH.SCALED_MODEL,[app.storageglobal_path, '/','static_output.mot'], DATA.OPTIONS.GEOMETRYPATH )
                 go_out =1; % exit searching for static improve when multiple statics?
-            else
+            else %when having other files not implemented yet
             end
             pause(2)
         else
@@ -84,15 +90,11 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
 end
 
 %% now start amother loop for the dynamic calculation
-%processed= {}; % will contain all the processed files, appended after each loop to avoid detecting already existed files
 up = 1; % counts incrementel when a file has processed
 while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.SelectedObject.Value ==1)
     fileList = dir(fullfile(app.storageglobal_path, ['*', app.File2scanDropDown.Value]));
     Index_Static = find(contains({fileList.name}, app.RefidentifierEditField.Value));
     fileList(Index_Static) = []; % remove the static c3d file from the list, will not be recognized
-    fileList_cells = {fileList.name};
-    % processed_pos = find (contains( {fileList.name}, processed));
-    % fileList(processed_pos) = [];
     fileList_cells = {fileList.name};
     dy = 1;
     if ~isempty(fileList_cells)
@@ -100,11 +102,9 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
         pause(2)
         start_time = tic;
         trialname = matlab.lang.makeValidName(erase((fileList_cells{1, dy}),  app.File2scanDropDown.Value));
-        choice = questdlg(['Do you want to process ',(fileList_cells{1, dy}),'?'], ...
-            'Confirmation', ...
-            'Yes', 'No', 'modal');
+        choice = questdlg(['Do you want to process ',(fileList_cells{1, dy}),'?'], 'Yes', 'No');
         if strcmp(choice, 'Yes')
-            %% try to load a existing mat file since the user may has delete trials in the dasboarh TODO
+            %% try to load a existing mat file since the user may has delete trials in the dasboarh
             if up >1
                 clearvars DATA
                 DATA = load([app.FoldertomonitorEditField.Value,'/' ,app.IDEditField.Value,'.mat']);
@@ -117,10 +117,10 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
             path_to_dyn = [app.storageglobal_path, '/', (fileList_cells{1, dy})];
             app.Label_2.Text = [fileList_cells{1, dy}];
             app.Label_2.FontColor = [0 0.5 0];
-            pause(0.0000000000001)
-            %% Cut, fill, create trc and mot
+            pause(0.000000001)
+            %% Cut, fill (PCA), filter and create trc and mot file with
             try
-                [DATA.OPTIONS.ftkratio, DATA.OPTIONS.PATHS.TRC.(trialname), DATA.OPTIONS.PATHS.MOT.(trialname), DATA.CONTACT_ANALOG.(trialname), DATA.CONTACT_KINEMATIC.(trialname), DATA.MARKERS.(trialname), DATA.GRF.(trialname), DATA.OPTIONS.FREQ_KINEMATIC, DATA.OPTIONS.FREQ_ANALOG, DATA.OPTIONS.FP_CORNERS.(trialname), markers_from_c3d, DATA.markers_from_c3d_filt.(trialname),run_time(1,1)] = dynamic_c3d_to_try(path_to_dyn, app.CutfilesCheckBox.Value, DATA.OPTIONS.ForcePlateNumber.(trialname), app.NEditField.Value, DATA.OPTIONS.SETTINGS  );
+                [DATA.OPTIONS.ftkratio, DATA.OPTIONS.PATHS.TRC.(trialname), DATA.OPTIONS.PATHS.MOT.(trialname), DATA.CONTACT_ANALOG.(trialname), DATA.CONTACT_KINEMATIC.(trialname), DATA.MARKERS.(trialname), DATA.GRF.(trialname), DATA.OPTIONS.FREQ_KINEMATIC, DATA.OPTIONS.FREQ_ANALOG, DATA.OPTIONS.FP_CORNERS.(trialname), DATA.markers_from_c3d_filt.(trialname),run_time(1,1)] = dynamic_c3d_to_try(path_to_dyn, app.CutfilesCheckBox.Value, DATA.OPTIONS.ForcePlateNumber.(trialname), app.NEditField.Value, DATA.OPTIONS.SETTINGS, DATA.OPTIONS  );
             catch
                 DATA.OPTIONS.FOOT_IN_FP.(trialname) =0;
                 DATA.OPTIONS.ERROR_REASON.(trialname) = 'convert';
@@ -130,17 +130,29 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                 errordlg (['Error when converting ', fileList_cells{1, dy} ,'Check Markers and Forces. Enure that the correct force plate was selected!'])
             end
             %% Check if foot is on FP
-            try
-                [DATA.OPTIONS.FOOT_IN_FP.(trialname)] = is_foot_on_force_plate_fun(DATA.OPTIONS.MARKER_SETUP, DATA.OPTIONS.SETTINGS, DATA.OPTIONS.FP_CORNERS.(trialname), DATA.CONTACT_KINEMATIC.(trialname)(1),DATA.CONTACT_ANALOG.(trialname)(1), markers_from_c3d,DATA.OPTIONS.LEG_ANALYZED.(trialname) );
-                
-            catch ME
-                %% remove previously written field from struct because of the error
+            if app.FoFCheckBox.Value ==1
+                try
+                    [DATA.OPTIONS.FOOT_IN_FP.(trialname)] = is_foot_on_force_plate_fun(DATA.OPTIONS.MARKER_SETUP, DATA.OPTIONS.SETTINGS, DATA.OPTIONS.FP_CORNERS.(trialname), DATA.CONTACT_KINEMATIC.(trialname)(1),DATA.CONTACT_ANALOG.(trialname)(1), DATA.markers_from_c3d_filt.(trialname),DATA.OPTIONS.LEG_ANALYZED.(trialname) );
+                catch ME
+                    %% remove previously written field from struct because of the error
+                    DATA.OPTIONS.LEG_ANALYZED = rmfield( DATA.OPTIONS.LEG_ANALYZED, (trialname));
+                    DATA.OPTIONS.ForcePlateNumber = rmfield( DATA.OPTIONS.ForcePlateNumber, (trialname));
+                    DATA.OPTIONS.FOOT_IN_FP.(trialname) =0;
+                    DATA.OPTIONS.ERROR_REASON.(trialname) = 'foot_on_force_plate';
+                    errordlg (ME.message);
+                end
+            else
+                DATA.OPTIONS.FOOT_IN_FP.(trialname) = 1;
+            end
+            %% check the existens of all necessary marker TODO
+            [DATA.OPTIONS.FOOT_IN_FP.(trialname), missing_markers] = check_if_all_markers_are_there(DATA.markers_from_c3d_filt.(trialname), {DATA.OPTIONS.MARKER_SETUP.MARKERSREQUIRED{index_in_marker_set_file_excel,[2:end]}});
+            if DATA.OPTIONS.FOOT_IN_FP.(trialname) ==0
+                %% delete from array
                 DATA.OPTIONS.LEG_ANALYZED = rmfield( DATA.OPTIONS.LEG_ANALYZED, (trialname));
                 DATA.OPTIONS.ForcePlateNumber = rmfield( DATA.OPTIONS.ForcePlateNumber, (trialname));
-                DATA.OPTIONS.FOOT_IN_FP.(trialname) =0;
-                DATA.OPTIONS.ERROR_REASON.(trialname) = 'foot_on_force_plate';
-                errordlg (ME.message);
+                DATA.OPTIONS.ERROR_REASON.(trialname) = missing_markers;
             end
+            %%
             if DATA.OPTIONS.FOOT_IN_FP.(trialname)==1
                 %% IK
                 [DATA.OPTIONS.PATHS.IK.(trialname), run_time(1,2)]=IK_app(DATA.OPTIONS.PATHS.TRC.(trialname),app.FoldertomonitorEditField.Value);
@@ -148,7 +160,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                 [DATA.OPTIONS.PATHS.ID.(trialname), run_time(1,3)] = ID_app(DATA.OPTIONS.PATHS.MOT.(trialname),DATA.OPTIONS.PATHS.TRC.(trialname),app.FoldertomonitorEditField.Value, DATA.OPTIONS.PATHS.IK.(trialname), DATA.OPTIONS.LEG_ANALYZED.(trialname), DATA.OPTIONS.ForcePlateNumber.(trialname) );
                 %% Body kinematics
                 [DATA.OPTIONS.PATHS.BK_ACC.(trialname), DATA.OPTIONS.PATHS.BK_VEL.(trialname),DATA.OPTIONS.PATHS.BK_POS.(trialname), run_time(1,4)] = on_Bodykinematics(DATA.OPTIONS.PATHS.IK.(trialname),DATA.OPTIONS.PATH.SCALED_MODEL, app.FoldertomonitorEditField.Value, app.IDEditField.Value, trialname);
-                %% TODO make automatic choose the correct marker index_in_marker_set_file_excel
+                %%  make automatic choose the correct marker index_in_marker_set_file_excel
                 if  strcmp(lower(app.Leg2AnalyzeDropDown.Value(1)), 'l') ==1
                     multi = -1;
                     DATA.OPTIONS.LEG.(trialname) ='L';
@@ -178,9 +190,9 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                 [~,~,DATA.BK_ACC_TABLE.(trialname)] =  readMOTSTOTRCfiles((DATA.OPTIONS.PATHS.BK_ACC.(trialname)(1:find((DATA.OPTIONS.PATHS.BK_ACC.(trialname)) == '\', 1, 'last'))),(DATA.OPTIONS.PATHS.BK_ACC.(trialname)(find((DATA.OPTIONS.PATHS.BK_ACC.(trialname)) == '\', 1, 'last')+1:end)));
                 [~,~,DATA.BK_VEL_TABLE.(trialname)] =  readMOTSTOTRCfiles((DATA.OPTIONS.PATHS.BK_VEL.(trialname)(1:find((DATA.OPTIONS.PATHS.BK_VEL.(trialname)) == '\', 1, 'last'))),(DATA.OPTIONS.PATHS.BK_VEL.(trialname)(find((DATA.OPTIONS.PATHS.BK_VEL.(trialname)) == '\', 1, 'last')+1:end)));
                 [~,~,DATA.BK_POS_TABLE.(trialname)] =  readMOTSTOTRCfiles((DATA.OPTIONS.PATHS.BK_POS.(trialname)(1:find((DATA.OPTIONS.PATHS.BK_POS.(trialname)) == '\', 1, 'last'))),(DATA.OPTIONS.PATHS.BK_POS.(trialname)(find((DATA.OPTIONS.PATHS.BK_POS.(trialname)) == '\', 1, 'last')+1:end)));
-                %% refilter the IK results to match with the ID
+                %% refilter the IK results to match with the ID (markers for OpenSim TRC are not filtered!!)
                 [DATA.ANGLES_TABLE_FILT.(trialname)] = filter_IK(DATA.ANGLES_TABLE.(trialname), 20);
-
+                %% get some discrete variables at TD
                 ARRAY = DATA.BK_VEL_TABLE.(trialname);
                 for op = 1 : length(ARRAY.Properties.VariableNames)
                     DATA.PARAMETERS.(['IC_BKVEL_',ARRAY.Properties.VariableNames{op} ])(1,up)  = table2array(ARRAY(DATA.CONTACT_KINEMATIC.(trialname)(1),ARRAY.Properties.VariableNames{op}));
@@ -323,7 +335,8 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
             end
         end
         app.Label_2.Text = 'Searching for dynamic';
-        pause(0.000001)
+        DATA.OPTIONS.mass = app.MassKgEditField.Value;
+        pause(0.0001)
     end
     stop_dyn_loop = strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.SelectedObject.Value ==0);
     pause(0.001)

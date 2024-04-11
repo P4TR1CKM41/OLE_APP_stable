@@ -1,6 +1,5 @@
-function  [opensimmodelpathscaled, IK_results_static_path, IK_res_ANGLES]=scaling_OLE_app(path_to_trc,  ID, pathtopfolder,  static_name, modelname, markersetname, scalesetupname, OPTIONS)
-% path_to_trc = replace(path_to_trc, '.c3d', '.trc');
-
+function  [opensimmodelpathscaled, IK_results_static_path, IK_res_ANGLES, scaliing_time]=scaling_OLE_app(path_to_trc,  ID, pathtopfolder,  static_name, modelname, markersetname, scalesetupname, OPTIONS)
+tic
 static_name = [static_name];
 import org.opensim.modeling.*
 %% Path to the OSIM generic model
@@ -51,4 +50,5 @@ clearvars scaleTool
 IK_results_static_path = [pathtopfolder, '/static_output.mot'];
 name = split(IK_results_static_path, '/');
 [~, ~,IK_res_ANGLES] = readMOTSTOTRCfiles([pathtopfolder,'/'], (name{end, 1}));
+scaliing_time = toc; 
 end
