@@ -1,7 +1,7 @@
 function  gap_fill_markers_OLE(path, info, OPTIONS)
 %% read marker data
 % tic
-pause(0.001)
+pause(0.01)
 errorlog{1,1} = '';
 
 acq = btkReadAcquisition(path);
@@ -72,27 +72,7 @@ if exist ('gaps' ,'var') ==1
         errorlog{1,4} = marker_recon_name;
     end
     %% right femur and left
-    x = {OPTIONS.MARKER_SETUP.R_FEMUR{index_in_marker_setup_array, [2:end]}};
-    x(cellfun(@(x) any(isnan(x)),x)) = [];
-
-    if length(x) ==3
-        try
-            [MARKERS, Gap_lengt(1,6), marker_recon_name] = PM_recon_if_Gaps_OLE(MARKERS, structname ,{OPTIONS.MARKER_SETUP.R_FEMUR{index_in_marker_setup_array, 2}  ,OPTIONS.MARKER_SETUP.R_FEMUR{index_in_marker_setup_array, 3}  ,OPTIONS.MARKER_SETUP.R_FEMUR{index_in_marker_setup_array, 4}   });
-            markers.(marker_recon_name)  = MARKERS.Test.Raw.(marker_recon_name).data';
-            btkSetPointValues(acq, marker_recon_name, MARKERS.Test.Raw.(marker_recon_name).data');
-            btkSetPointResiduals(acq, marker_recon_name, ones(length(MARKERS.Test.Raw.(marker_recon_name).data'),1));
-        catch
-            errorlog{1,5} = marker_recon_name;
-        end
-        try
-            [MARKERS, Gap_lengt(1,7), marker_recon_name] = PM_recon_if_Gaps_OLE(MARKERS, structname ,{OPTIONS.MARKER_SETUP.L_FEMUR{index_in_marker_setup_array, 2}  ,OPTIONS.MARKER_SETUP.L_FEMUR{index_in_marker_setup_array, 3}  ,OPTIONS.MARKER_SETUP.L_FEMUR{index_in_marker_setup_array, 4}   });
-            markers.(marker_recon_name)  = MARKERS.Test.Raw.(marker_recon_name).data';
-            btkSetPointValues(acq, marker_recon_name, MARKERS.Test.Raw.(marker_recon_name).data');
-            btkSetPointResiduals(acq, marker_recon_name, ones(length(MARKERS.Test.Raw.(marker_recon_name).data'),1));
-        catch
-            errorlog{1,5} = marker_recon_name;
-        end
-    elseif length(x) ==4
+   
         try
             [MARKERS, Gap_lengt(1,6), marker_recon_name] = PM_recon_if_Gaps_OLE(MARKERS, structname ,{OPTIONS.MARKER_SETUP.R_FEMUR{index_in_marker_setup_array, 2}  ,OPTIONS.MARKER_SETUP.R_FEMUR{index_in_marker_setup_array, 3}  ,OPTIONS.MARKER_SETUP.R_FEMUR{index_in_marker_setup_array, 4}  ,OPTIONS.MARKER_SETUP.R_FEMUR{index_in_marker_setup_array, 5}  });
             markers.(marker_recon_name)  = MARKERS.Test.Raw.(marker_recon_name).data';
@@ -107,9 +87,9 @@ if exist ('gaps' ,'var') ==1
             btkSetPointValues(acq, marker_recon_name, MARKERS.Test.Raw.(marker_recon_name).data');
             btkSetPointResiduals(acq, marker_recon_name, ones(length(MARKERS.Test.Raw.(marker_recon_name).data'),1));
         catch
-            errorlog{1,6} = marker_recon_name;
+            errorlog{1,7} = marker_recon_name;
         end
-    end
+    
 
 
     %% right tibia

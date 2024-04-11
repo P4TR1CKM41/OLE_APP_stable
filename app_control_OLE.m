@@ -102,7 +102,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
         pause(2)
         start_time = tic;
         trialname = matlab.lang.makeValidName(erase((fileList_cells{1, dy}),  app.File2scanDropDown.Value));
-        choice = questdlg(['Do you want to process ',(fileList_cells{1, dy}),'?'], 'Yes', 'No');
+        choice = questdlg(['Do you want to process ',(fileList_cells{1, dy}),'?'],'Process file' ,'Yes', 'No', 'modal');
         if strcmp(choice, 'Yes')
             %% try to load a existing mat file since the user may has delete trials in the dasboarh
             if up >1

@@ -2968,3 +2968,834 @@ Assembly error tolerance achieved: 2.230261841873471e-08 required: 1e-10..Model 
 [2024-04-11 08:37:44.639] [info] Found 133 state vectors with time stamps ranging from -0.33 to 0.99.
 [2024-04-11 08:37:44.639] [info] Executing the analyses from 0.0 to 0.66...
 [2024-04-11 08:37:44.795] [info] Printing results of investigation BODYKIN_RESULTS_Participant_202_90degreecut108_l to C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/
+[2024-04-11 08:56:20.477] [info] Processing subject P00X...
+[2024-04-11 08:56:20.479] [info] Step 1: Loading generic model
+[2024-04-11 08:56:20.498] [info] Loaded model Catelli_high_hip_flexion from file c:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\generic_model.osim
+[2024-04-11 08:56:20.506] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 08:56:20.506] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 08:56:20.508] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 08:56:20.508] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 08:56:20.572] [info] Loading marker set from 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFoldermarkerset.xml'.
+[2024-04-11 08:56:20.623] [info] Updated markers in model Catelli_high_hip_flexion
+[2024-04-11 08:56:20.623] [info] Step 2: Scaling generic model
+[2024-04-11 08:56:20.677] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc (99 markers, 245 frames)
+[2024-04-11 08:56:20.677] [info] Measurement 'pelvis_x'
+[2024-04-11 08:56:20.677] [info] 	pair 0 (V_MidPnt_SIAS, V_MidPnt_SIPS): model = 0.166652, experimental = 0.250449
+[2024-04-11 08:56:20.677] [info] 	overall scale factor = 1.50283
+[2024-04-11 08:56:20.677] [info] Measurement 'pelvis_y'
+[2024-04-11 08:56:20.677] [info] 	pair 0 (V_Left_Hip, V_MidPnt_Pelvis): model = 0.130674, experimental = 0.138753
+[2024-04-11 08:56:20.677] [info] 	pair 1 (V_Right_Hip, V_MidPnt_Pelvis): model = 0.130674, experimental = 0.138216
+[2024-04-11 08:56:20.677] [info] 	overall scale factor = 1.05977
+[2024-04-11 08:56:20.678] [info] Measurement 'pelvis_z'
+[2024-04-11 08:56:20.678] [info] 	pair 0 (V_Right_Hip, V_Left_Hip): model = 0.15452, experimental = 0.183642
+[2024-04-11 08:56:20.678] [info] 	overall scale factor = 1.18847
+[2024-04-11 08:56:20.678] [info] Measurement 'thight_right'
+[2024-04-11 08:56:20.678] [info] 	pair 0 (V_Right_Hip, V_MidPnt_R_Knee): model = 0.404000, experimental = 0.449189
+[2024-04-11 08:56:20.678] [info] 	overall scale factor = 1.11186
+[2024-04-11 08:56:20.678] [info] Measurement 'thight_left'
+[2024-04-11 08:56:20.678] [info] 	pair 0 (V_Left_Hip, V_MidPnt_L_Knee): model = 0.404000, experimental = 0.471004
+[2024-04-11 08:56:20.678] [info] 	overall scale factor = 1.16585
+[2024-04-11 08:56:20.678] [info] Measurement 'shank_left'
+[2024-04-11 08:56:20.678] [info] 	pair 0 (V_MidPnt_L_Knee, V_MidPnt_L_Mal): model = 0.380256, experimental = 0.410084
+[2024-04-11 08:56:20.678] [info] 	overall scale factor = 1.07844
+[2024-04-11 08:56:20.678] [info] Measurement 'shank_right'
+[2024-04-11 08:56:20.678] [info] 	pair 0 (V_MidPnt_R_Knee, V_MidPnt_R_Mal): model = 0.389209, experimental = 0.416308
+[2024-04-11 08:56:20.678] [info] 	overall scale factor = 1.06963
+[2024-04-11 08:56:20.678] [info] Measurement 'foot_r'
+[2024-04-11 08:56:20.678] [info] 	pair 0 (RMC, V_MidPnt_R_MTP): model = 0.184907, experimental = 0.22445
+[2024-04-11 08:56:20.678] [info] 	overall scale factor = 1.21386
+[2024-04-11 08:56:20.678] [info] Measurement 'foot_l'
+[2024-04-11 08:56:20.678] [info] 	pair 0 (LMC, V_MidPnt_L_MTP): model = 0.184977, experimental = 0.221188
+[2024-04-11 08:56:20.678] [info] 	overall scale factor = 1.19576
+[2024-04-11 08:56:20.679] [info] Measurement 'humuerus_r'
+[2024-04-11 08:56:20.679] [info] 	pair 0 (RGH, RELBOW): model = 0.336981, experimental = 0.351862
+[2024-04-11 08:56:20.679] [info] 	overall scale factor = 1.04416
+[2024-04-11 08:56:20.679] [info] Measurement 'lowerarm_r'
+[2024-04-11 08:56:20.679] [info] 	pair 0 (RELBOW, RWRIST): model = 0.248981, experimental = 0.219643
+[2024-04-11 08:56:20.679] [info] 	overall scale factor = 0.882168
+[2024-04-11 08:56:20.679] [info] Measurement 'humerus_l'
+[2024-04-11 08:56:20.679] [info] 	pair 0 (LGH, LELBOW): model = 0.33481, experimental = 0.337392
+[2024-04-11 08:56:20.679] [info] 	overall scale factor = 1.00771
+[2024-04-11 08:56:20.679] [info] Measurement 'lowerarm_l'
+[2024-04-11 08:56:20.679] [info] 	pair 0 (LELBOW, LWRIST): model = 0.248026, experimental = 0.239483
+[2024-04-11 08:56:20.679] [info] 	overall scale factor = 0.965555
+[2024-04-11 08:56:20.679] [info] Measurement 'foot_r_x'
+[2024-04-11 08:56:20.679] [info] 	pair 0 (Pro_MidPnt_R_Mal, Pro_MidPnt_R_MTP): model = 0.105729, experimental = 0.147917
+[2024-04-11 08:56:20.679] [info] 	overall scale factor = 1.39902
+[2024-04-11 08:56:20.679] [info] Measurement 'foot_r_y'
+[2024-04-11 08:56:20.679] [info] 	pair 0 (Pro_MidPnt_R_Mal, V_MidPnt_R_Mal): model = 0.0862257, experimental = 0.111913
+[2024-04-11 08:56:20.679] [info] 	overall scale factor = 1.29791
+[2024-04-11 08:56:20.679] [info] Measurement 'foot_r_z'
+[2024-04-11 08:56:20.679] [info] 	pair 0 (V_R5MTP, V_R1MTP): model = 0.0917203, experimental = 0.0913309
+[2024-04-11 08:56:20.679] [info] 	overall scale factor = 0.995754
+[2024-04-11 08:56:20.679] [info] Measurement 'foot_l_x'
+[2024-04-11 08:56:20.679] [info] 	pair 0 (Pro_MidPnt_L_Mal, Pro_MidPnt_L_MTP): model = 0.105781, experimental = 0.14773
+[2024-04-11 08:56:20.680] [info] 	overall scale factor = 1.39657
+[2024-04-11 08:56:20.680] [info] Measurement 'foot_l_y'
+[2024-04-11 08:56:20.680] [info] 	pair 0 (Pro_MidPnt_L_Mal, V_MidPnt_L_Mal): model = 0.0944144, experimental = 0.116912
+[2024-04-11 08:56:20.680] [info] 	overall scale factor = 1.23829
+[2024-04-11 08:56:20.680] [info] Measurement 'foot_l_z'
+[2024-04-11 08:56:20.680] [info] 	pair 0 (V_L5MTP, V_L1MTP): model = 0.089236, experimental = 0.0923839
+[2024-04-11 08:56:20.680] [info] 	overall scale factor = 1.03528
+[2024-04-11 08:56:20.680] [info] Measurement 'torso_x'
+[2024-04-11 08:56:20.680] [info] 	pair 0 (V_MidPnt_SIAS, V_MidPnt_SIPS): model = 0.166652, experimental = 0.250449
+[2024-04-11 08:56:20.680] [info] 	overall scale factor = 1.50283
+[2024-04-11 08:56:20.680] [info] Measurement 'torso_y'
+[2024-04-11 08:56:20.680] [info] 	pair 0 (V_MidPnt_Pelvis, C7): model = 0.480138, experimental = 0.511272
+[2024-04-11 08:56:20.680] [info] 	overall scale factor = 1.06484
+[2024-04-11 08:56:20.680] [info] Measurement 'torso_z'
+[2024-04-11 08:56:20.680] [info] 	pair 0 (RGH, LGH): model = 0.276373, experimental = 0.410513
+[2024-04-11 08:56:20.680] [info] 	overall scale factor = 1.48536
+[2024-04-11 08:56:20.776] [info] Wrote model file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaled_matlab.osim' from model.
+[2024-04-11 08:56:20.779] [info] Wrote scale file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaleSet_applied.xml' for model P00X.
+[2024-04-11 08:56:20.779] [info] Step 3: Placing markers on model
+[2024-04-11 08:56:20.854] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc (99 markers, 245 frames)
+[2024-04-11 08:56:20.854] [info] Averaged frames from time 0.0 to 2.44 in C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc (frames 1 to 245)
+[2024-04-11 08:56:20.854] [info] Deleted 0 unused markers from model P00X.
+[2024-04-11 08:56:20.950] [info] Frame at (t = 0.0):	 total squared error = 0.0370815, marker error: RMS = 0.0340411, max = 0.0795933 (RLE)
+[2024-04-11 08:56:20.950] [info] Moved markers in model P00X to match locations in marker file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc'.
+[2024-04-11 08:56:20.972] [info] Wrote model file '\scaled_weighted_matlab.osim' from model P00X.
+[2024-04-11 08:56:20.976] [info] Wrote marker file '\MarkerSet_after_scale.xml' from model P00X.
+[2024-04-11 08:56:21.134] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/scaled_weighted_matlab.osim
+[2024-04-11 08:56:21.134] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 08:56:21.135] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 08:56:21.135] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 08:56:21.135] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 08:57:13.867] [info] Processing subject P00X...
+[2024-04-11 08:57:13.867] [info] Step 1: Loading generic model
+[2024-04-11 08:57:13.882] [info] Loaded model Catelli_high_hip_flexion from file c:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\generic_model.osim
+[2024-04-11 08:57:13.883] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 08:57:13.883] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 08:57:13.884] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 08:57:13.884] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 08:57:13.905] [info] Loading marker set from 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFoldermarkerset.xml'.
+[2024-04-11 08:57:13.949] [info] Updated markers in model Catelli_high_hip_flexion
+[2024-04-11 08:57:13.949] [info] Step 2: Scaling generic model
+[2024-04-11 08:57:13.995] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc (99 markers, 245 frames)
+[2024-04-11 08:57:13.995] [info] Measurement 'pelvis_x'
+[2024-04-11 08:57:13.995] [info] 	pair 0 (V_MidPnt_SIAS, V_MidPnt_SIPS): model = 0.166652, experimental = 0.250449
+[2024-04-11 08:57:13.995] [info] 	overall scale factor = 1.50283
+[2024-04-11 08:57:13.995] [info] Measurement 'pelvis_y'
+[2024-04-11 08:57:13.995] [info] 	pair 0 (V_Left_Hip, V_MidPnt_Pelvis): model = 0.130674, experimental = 0.138753
+[2024-04-11 08:57:13.995] [info] 	pair 1 (V_Right_Hip, V_MidPnt_Pelvis): model = 0.130674, experimental = 0.138216
+[2024-04-11 08:57:13.996] [info] 	overall scale factor = 1.05977
+[2024-04-11 08:57:13.996] [info] Measurement 'pelvis_z'
+[2024-04-11 08:57:13.996] [info] 	pair 0 (V_Right_Hip, V_Left_Hip): model = 0.15452, experimental = 0.183642
+[2024-04-11 08:57:13.996] [info] 	overall scale factor = 1.18847
+[2024-04-11 08:57:13.996] [info] Measurement 'thight_right'
+[2024-04-11 08:57:13.996] [info] 	pair 0 (V_Right_Hip, V_MidPnt_R_Knee): model = 0.404000, experimental = 0.449189
+[2024-04-11 08:57:13.996] [info] 	overall scale factor = 1.11186
+[2024-04-11 08:57:13.996] [info] Measurement 'thight_left'
+[2024-04-11 08:57:13.996] [info] 	pair 0 (V_Left_Hip, V_MidPnt_L_Knee): model = 0.404000, experimental = 0.471004
+[2024-04-11 08:57:13.996] [info] 	overall scale factor = 1.16585
+[2024-04-11 08:57:13.996] [info] Measurement 'shank_left'
+[2024-04-11 08:57:13.996] [info] 	pair 0 (V_MidPnt_L_Knee, V_MidPnt_L_Mal): model = 0.380256, experimental = 0.410084
+[2024-04-11 08:57:13.996] [info] 	overall scale factor = 1.07844
+[2024-04-11 08:57:13.996] [info] Measurement 'shank_right'
+[2024-04-11 08:57:13.996] [info] 	pair 0 (V_MidPnt_R_Knee, V_MidPnt_R_Mal): model = 0.389209, experimental = 0.416308
+[2024-04-11 08:57:13.996] [info] 	overall scale factor = 1.06963
+[2024-04-11 08:57:13.996] [info] Measurement 'foot_r'
+[2024-04-11 08:57:13.996] [info] 	pair 0 (RMC, V_MidPnt_R_MTP): model = 0.184907, experimental = 0.22445
+[2024-04-11 08:57:13.996] [info] 	overall scale factor = 1.21386
+[2024-04-11 08:57:13.996] [info] Measurement 'foot_l'
+[2024-04-11 08:57:13.996] [info] 	pair 0 (LMC, V_MidPnt_L_MTP): model = 0.184977, experimental = 0.221188
+[2024-04-11 08:57:13.996] [info] 	overall scale factor = 1.19576
+[2024-04-11 08:57:13.996] [info] Measurement 'humuerus_r'
+[2024-04-11 08:57:13.996] [info] 	pair 0 (RGH, RELBOW): model = 0.336981, experimental = 0.351862
+[2024-04-11 08:57:13.996] [info] 	overall scale factor = 1.04416
+[2024-04-11 08:57:13.996] [info] Measurement 'lowerarm_r'
+[2024-04-11 08:57:13.997] [info] 	pair 0 (RELBOW, RWRIST): model = 0.248981, experimental = 0.219643
+[2024-04-11 08:57:13.997] [info] 	overall scale factor = 0.882168
+[2024-04-11 08:57:13.997] [info] Measurement 'humerus_l'
+[2024-04-11 08:57:13.997] [info] 	pair 0 (LGH, LELBOW): model = 0.33481, experimental = 0.337392
+[2024-04-11 08:57:13.997] [info] 	overall scale factor = 1.00771
+[2024-04-11 08:57:13.997] [info] Measurement 'lowerarm_l'
+[2024-04-11 08:57:13.997] [info] 	pair 0 (LELBOW, LWRIST): model = 0.248026, experimental = 0.239483
+[2024-04-11 08:57:13.997] [info] 	overall scale factor = 0.965555
+[2024-04-11 08:57:13.997] [info] Measurement 'foot_r_x'
+[2024-04-11 08:57:13.997] [info] 	pair 0 (Pro_MidPnt_R_Mal, Pro_MidPnt_R_MTP): model = 0.105729, experimental = 0.147917
+[2024-04-11 08:57:13.997] [info] 	overall scale factor = 1.39902
+[2024-04-11 08:57:13.997] [info] Measurement 'foot_r_y'
+[2024-04-11 08:57:13.997] [info] 	pair 0 (Pro_MidPnt_R_Mal, V_MidPnt_R_Mal): model = 0.0862257, experimental = 0.111913
+[2024-04-11 08:57:13.997] [info] 	overall scale factor = 1.29791
+[2024-04-11 08:57:13.997] [info] Measurement 'foot_r_z'
+[2024-04-11 08:57:13.997] [info] 	pair 0 (V_R5MTP, V_R1MTP): model = 0.0917203, experimental = 0.0913309
+[2024-04-11 08:57:13.997] [info] 	overall scale factor = 0.995754
+[2024-04-11 08:57:13.997] [info] Measurement 'foot_l_x'
+[2024-04-11 08:57:13.997] [info] 	pair 0 (Pro_MidPnt_L_Mal, Pro_MidPnt_L_MTP): model = 0.105781, experimental = 0.14773
+[2024-04-11 08:57:13.997] [info] 	overall scale factor = 1.39657
+[2024-04-11 08:57:13.997] [info] Measurement 'foot_l_y'
+[2024-04-11 08:57:13.997] [info] 	pair 0 (Pro_MidPnt_L_Mal, V_MidPnt_L_Mal): model = 0.0944144, experimental = 0.116912
+[2024-04-11 08:57:13.997] [info] 	overall scale factor = 1.23829
+[2024-04-11 08:57:13.997] [info] Measurement 'foot_l_z'
+[2024-04-11 08:57:13.997] [info] 	pair 0 (V_L5MTP, V_L1MTP): model = 0.089236, experimental = 0.0923839
+[2024-04-11 08:57:13.997] [info] 	overall scale factor = 1.03528
+[2024-04-11 08:57:13.997] [info] Measurement 'torso_x'
+[2024-04-11 08:57:13.997] [info] 	pair 0 (V_MidPnt_SIAS, V_MidPnt_SIPS): model = 0.166652, experimental = 0.250449
+[2024-04-11 08:57:13.998] [info] 	overall scale factor = 1.50283
+[2024-04-11 08:57:13.998] [info] Measurement 'torso_y'
+[2024-04-11 08:57:13.998] [info] 	pair 0 (V_MidPnt_Pelvis, C7): model = 0.480138, experimental = 0.511272
+[2024-04-11 08:57:13.998] [info] 	overall scale factor = 1.06484
+[2024-04-11 08:57:13.998] [info] Measurement 'torso_z'
+[2024-04-11 08:57:13.998] [info] 	pair 0 (RGH, LGH): model = 0.276373, experimental = 0.410513
+[2024-04-11 08:57:13.998] [info] 	overall scale factor = 1.48536
+[2024-04-11 08:57:14.082] [info] Wrote model file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaled_matlab.osim' from model.
+[2024-04-11 08:57:14.084] [info] Wrote scale file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaleSet_applied.xml' for model P00X.
+[2024-04-11 08:57:14.084] [info] Step 3: Placing markers on model
+[2024-04-11 08:57:14.146] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc (99 markers, 245 frames)
+[2024-04-11 08:57:14.146] [info] Averaged frames from time 0.0 to 2.44 in C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc (frames 1 to 245)
+[2024-04-11 08:57:14.147] [info] Deleted 0 unused markers from model P00X.
+[2024-04-11 08:57:14.225] [info] Frame at (t = 0.0):	 total squared error = 0.0370815, marker error: RMS = 0.0340411, max = 0.0795933 (RLE)
+[2024-04-11 08:57:14.225] [info] Moved markers in model P00X to match locations in marker file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc'.
+[2024-04-11 08:57:14.244] [info] Wrote model file '\scaled_weighted_matlab.osim' from model P00X.
+[2024-04-11 08:57:14.247] [info] Wrote marker file '\MarkerSet_after_scale.xml' from model P00X.
+[2024-04-11 08:57:14.287] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/scaled_weighted_matlab.osim
+[2024-04-11 08:57:14.288] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 08:57:14.288] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 08:57:14.289] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 08:57:14.289] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 08:57:31.348] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaled_matlab.osim
+[2024-04-11 08:57:31.350] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 08:57:31.350] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 08:57:31.352] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 08:57:31.352] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 08:57:31.402] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/Participant_202_90degreecut101_r_c3d.trc (74 markers, 76 frames)
+[2024-04-11 08:57:31.428] [cout] [info] 
+               MODEL: P00X
+         coordinates: 43
+              forces: 0
+           actuators: 0
+             muscles: 0
+            analyses: 0
+              probes: 0
+              bodies: 22
+              joints: 22
+         constraints: 2
+             markers: 96
+         controllers: 0
+  contact geometries: 0
+misc modelcomponents: 0
+[2024-04-11 08:57:31.428] [info] Running tool Participant_202_90degreecut101_r_c3d.
+[2024-04-11 08:57:32.038] [info] Frame 0 (t = 0.0):	 total squared error = 0.221877, marker error: RMS = 0.0666149, max = 0.205419 (STERNUM)
+[2024-04-11 08:57:32.077] [info] Frame 1 (t = 0.01):	 total squared error = 0.225532, marker error: RMS = 0.0671613, max = 0.206880 (STERNUM)
+[2024-04-11 08:57:32.117] [info] Frame 2 (t = 0.02):	 total squared error = 0.229057, marker error: RMS = 0.0676841, max = 0.206747 (STERNUM)
+[2024-04-11 08:57:32.150] [info] Frame 3 (t = 0.03):	 total squared error = 0.232666, marker error: RMS = 0.0682152, max = 0.205358 (STERNUM)
+[2024-04-11 08:57:32.189] [info] Frame 4 (t = 0.04):	 total squared error = 0.234828, marker error: RMS = 0.0685314, max = 0.209006 (XYPHOID)
+[2024-04-11 08:57:32.219] [info] Frame 5 (t = 0.05):	 total squared error = 0.235168, marker error: RMS = 0.0685811, max = 0.210121 (XYPHOID)
+[2024-04-11 08:57:32.257] [info] Frame 6 (t = 0.06):	 total squared error = 0.23628, marker error: RMS = 0.0687431, max = 0.210106 (XYPHOID)
+[2024-04-11 08:57:32.304] [info] Frame 7 (t = 0.07):	 total squared error = 0.235694, marker error: RMS = 0.0686576, max = 0.210134 (XYPHOID)
+[2024-04-11 08:57:32.348] [info] Frame 8 (t = 0.08):	 total squared error = 0.234269, marker error: RMS = 0.0684499, max = 0.209283 (XYPHOID)
+[2024-04-11 08:57:32.394] [info] Frame 9 (t = 0.09):	 total squared error = 0.232633, marker error: RMS = 0.0682105, max = 0.207713 (XYPHOID)
+[2024-04-11 08:57:32.465] [info] Frame 10 (t = 0.1):	 total squared error = 0.230138, marker error: RMS = 0.0678436, max = 0.205643 (XYPHOID)
+[2024-04-11 08:57:32.514] [info] Frame 11 (t = 0.11):	 total squared error = 0.227656, marker error: RMS = 0.0674769, max = 0.203164 (XYPHOID)
+[2024-04-11 08:57:32.555] [info] Frame 12 (t = 0.12):	 total squared error = 0.22586, marker error: RMS = 0.0672101, max = 0.200862 (XYPHOID)
+[2024-04-11 08:57:32.582] [info] Frame 13 (t = 0.13):	 total squared error = 0.224678, marker error: RMS = 0.0670340, max = 0.19869 (XYPHOID)
+[2024-04-11 08:57:32.652] [info] Frame 14 (t = 0.14):	 total squared error = 0.223473, marker error: RMS = 0.0668541, max = 0.197383 (STERNUM)
+[2024-04-11 08:57:32.692] [info] Frame 15 (t = 0.15):	 total squared error = 0.222018, marker error: RMS = 0.066636, max = 0.197065 (STERNUM)
+[2024-04-11 08:57:32.741] [info] Frame 16 (t = 0.16):	 total squared error = 0.221093, marker error: RMS = 0.0664971, max = 0.196443 (STERNUM)
+[2024-04-11 08:57:32.768] [info] Frame 17 (t = 0.17):	 total squared error = 0.221326, marker error: RMS = 0.0665321, max = 0.196072 (STERNUM)
+[2024-04-11 08:57:32.839] [info] Frame 18 (t = 0.18):	 total squared error = 0.222174, marker error: RMS = 0.0666595, max = 0.194482 (STERNUM)
+[2024-04-11 08:57:32.879] [info] Frame 19 (t = 0.19):	 total squared error = 0.223938, marker error: RMS = 0.0669236, max = 0.19354 (STERNUM)
+[2024-04-11 08:57:32.962] [info] Frame 20 (t = 0.2):	 total squared error = 0.225084, marker error: RMS = 0.0670945, max = 0.192563 (STERNUM)
+[2024-04-11 08:57:32.999] [info] Frame 21 (t = 0.21):	 total squared error = 0.226452, marker error: RMS = 0.0672982, max = 0.192234 (XYPHOID)
+[2024-04-11 08:57:33.044] [info] Frame 22 (t = 0.22):	 total squared error = 0.229397, marker error: RMS = 0.0677344, max = 0.194582 (XYPHOID)
+[2024-04-11 08:57:33.068] [info] Frame 23 (t = 0.23):	 total squared error = 0.231911, marker error: RMS = 0.0681045, max = 0.196917 (XYPHOID)
+[2024-04-11 08:57:33.109] [info] Frame 24 (t = 0.24):	 total squared error = 0.233625, marker error: RMS = 0.0683557, max = 0.199153 (XYPHOID)
+[2024-04-11 08:57:33.161] [info] Frame 25 (t = 0.25):	 total squared error = 0.233667, marker error: RMS = 0.0683618, max = 0.201112 (XYPHOID)
+[2024-04-11 08:57:33.200] [info] Frame 26 (t = 0.26):	 total squared error = 0.233408, marker error: RMS = 0.068324, max = 0.203281 (XYPHOID)
+[2024-04-11 08:57:33.238] [info] Frame 27 (t = 0.27):	 total squared error = 0.236301, marker error: RMS = 0.068746, max = 0.205658 (XYPHOID)
+[2024-04-11 08:57:33.267] [info] Frame 28 (t = 0.28):	 total squared error = 0.236658, marker error: RMS = 0.0687979, max = 0.208232 (XYPHOID)
+[2024-04-11 08:57:33.300] [info] Frame 29 (t = 0.29):	 total squared error = 0.235428, marker error: RMS = 0.0686189, max = 0.212401 (XYPHOID)
+[2024-04-11 08:57:33.365] [info] Frame 30 (t = 0.3):	 total squared error = 0.235581, marker error: RMS = 0.0686412, max = 0.215068 (XYPHOID)
+[2024-04-11 08:57:33.404] [info] Frame 31 (t = 0.31):	 total squared error = 0.236281, marker error: RMS = 0.0687431, max = 0.218602 (XYPHOID)
+[2024-04-11 08:57:33.480] [info] Frame 32 (t = 0.32):	 total squared error = 0.237456, marker error: RMS = 0.0689139, max = 0.221694 (XYPHOID)
+[2024-04-11 08:57:33.517] [info] Frame 33 (t = 0.33):	 total squared error = 0.23718, marker error: RMS = 0.0688738, max = 0.222743 (XYPHOID)
+[2024-04-11 08:57:33.569] [info] Frame 34 (t = 0.34):	 total squared error = 0.235149, marker error: RMS = 0.0685783, max = 0.221153 (XYPHOID)
+[2024-04-11 08:57:33.788] [info] Frame 35 (t = 0.35):	 total squared error = 0.227771, marker error: RMS = 0.0674938, max = 0.232531 (XYPHOID)
+[2024-04-11 08:57:33.856] [info] Frame 36 (t = 0.36):	 total squared error = 0.224587, marker error: RMS = 0.0670204, max = 0.225121 (XYPHOID)
+[2024-04-11 08:57:33.895] [info] Frame 37 (t = 0.37):	 total squared error = 0.222724, marker error: RMS = 0.0667419, max = 0.218989 (XYPHOID)
+[2024-04-11 08:57:33.930] [info] Frame 38 (t = 0.38):	 total squared error = 0.221369, marker error: RMS = 0.0665386, max = 0.214574 (XYPHOID)
+[2024-04-11 08:57:34.021] [info] Frame 39 (t = 0.39):	 total squared error = 0.221183, marker error: RMS = 0.0665106, max = 0.211762 (XYPHOID)
+[2024-04-11 08:57:34.076] [info] Frame 40 (t = 0.4):	 total squared error = 0.222126, marker error: RMS = 0.0666522, max = 0.209821 (XYPHOID)
+[2024-04-11 08:57:34.097] [info] Frame 41 (t = 0.41):	 total squared error = 0.224488, marker error: RMS = 0.0670057, max = 0.210436 (XYPHOID)
+[2024-04-11 08:57:34.123] [info] Frame 42 (t = 0.42):	 total squared error = 0.228663, marker error: RMS = 0.0676259, max = 0.211748 (XYPHOID)
+[2024-04-11 08:57:34.198] [info] Frame 43 (t = 0.43):	 total squared error = 0.234118, marker error: RMS = 0.0684277, max = 0.215351 (XYPHOID)
+[2024-04-11 08:57:34.279] [info] Frame 44 (t = 0.44):	 total squared error = 0.241198, marker error: RMS = 0.0694547, max = 0.218916 (XYPHOID)
+[2024-04-11 08:57:34.315] [info] Frame 45 (t = 0.45):	 total squared error = 0.24988, marker error: RMS = 0.0706936, max = 0.222472 (XYPHOID)
+[2024-04-11 08:57:34.383] [info] Frame 46 (t = 0.46):	 total squared error = 0.260214, marker error: RMS = 0.0721407, max = 0.226374 (XYPHOID)
+[2024-04-11 08:57:34.411] [info] Frame 47 (t = 0.47):	 total squared error = 0.272645, marker error: RMS = 0.0738437, max = 0.231604 (XYPHOID)
+[2024-04-11 08:57:34.453] [info] Frame 48 (t = 0.48):	 total squared error = 0.285876, marker error: RMS = 0.0756143, max = 0.23623 (XYPHOID)
+[2024-04-11 08:57:34.512] [info] Frame 49 (t = 0.49):	 total squared error = 0.297623, marker error: RMS = 0.0771522, max = 0.239237 (XYPHOID)
+[2024-04-11 08:57:34.656] [info] Frame 50 (t = 0.5):	 total squared error = 0.307385, marker error: RMS = 0.0784073, max = 0.239556 (XYPHOID)
+[2024-04-11 08:57:34.734] [info] Frame 51 (t = 0.51):	 total squared error = 0.31665, marker error: RMS = 0.0795801, max = 0.241311 (XYPHOID)
+[2024-04-11 08:57:34.796] [info] Frame 52 (t = 0.52):	 total squared error = 0.323985, marker error: RMS = 0.0804966, max = 0.244023 (XYPHOID)
+[2024-04-11 08:57:34.856] [info] Frame 53 (t = 0.53):	 total squared error = 0.326714, marker error: RMS = 0.0808348, max = 0.246844 (XYPHOID)
+[2024-04-11 08:57:34.917] [info] Frame 54 (t = 0.54):	 total squared error = 0.32552, marker error: RMS = 0.0806871, max = 0.247713 (XYPHOID)
+[2024-04-11 08:57:34.994] [info] Frame 55 (t = 0.55):	 total squared error = 0.323040, marker error: RMS = 0.0803790, max = 0.24738 (XYPHOID)
+[2024-04-11 08:57:35.035] [info] Frame 56 (t = 0.56):	 total squared error = 0.320239, marker error: RMS = 0.0800299, max = 0.246566 (XYPHOID)
+[2024-04-11 08:57:35.078] [info] Frame 57 (t = 0.57):	 total squared error = 0.316838, marker error: RMS = 0.0796038, max = 0.2452 (XYPHOID)
+[2024-04-11 08:57:35.141] [info] Frame 58 (t = 0.58):	 total squared error = 0.316478, marker error: RMS = 0.0795585, max = 0.244093 (XYPHOID)
+[2024-04-11 08:57:35.187] [info] Frame 59 (t = 0.59):	 total squared error = 0.313743, marker error: RMS = 0.079214, max = 0.242478 (XYPHOID)
+[2024-04-11 08:57:35.227] [info] Frame 60 (t = 0.6):	 total squared error = 0.308274, marker error: RMS = 0.0785205, max = 0.240175 (XYPHOID)
+[2024-04-11 08:57:35.298] [info] Frame 61 (t = 0.61):	 total squared error = 0.29894, marker error: RMS = 0.0773227, max = 0.237449 (XYPHOID)
+[2024-04-11 08:57:35.341] [info] Frame 62 (t = 0.62):	 total squared error = 0.288469, marker error: RMS = 0.0759564, max = 0.235595 (XYPHOID)
+[2024-04-11 08:57:35.425] [info] Frame 63 (t = 0.63):	 total squared error = 0.275936, marker error: RMS = 0.0742881, max = 0.2339 (XYPHOID)
+[2024-04-11 08:57:35.482] [info] Frame 64 (t = 0.64):	 total squared error = 0.265001, marker error: RMS = 0.0728013, max = 0.229521 (XYPHOID)
+[2024-04-11 08:57:35.537] [info] Frame 65 (t = 0.65):	 total squared error = 0.256772, marker error: RMS = 0.071662, max = 0.22377 (XYPHOID)
+[2024-04-11 08:57:35.584] [info] Frame 66 (t = 0.66):	 total squared error = 0.252683, marker error: RMS = 0.0710891, max = 0.220483 (XYPHOID)
+[2024-04-11 08:57:35.634] [info] Frame 67 (t = 0.67):	 total squared error = 0.252789, marker error: RMS = 0.0711041, max = 0.220538 (XYPHOID)
+[2024-04-11 08:57:35.671] [info] Frame 68 (t = 0.68):	 total squared error = 0.255991, marker error: RMS = 0.0715529, max = 0.222701 (XYPHOID)
+[2024-04-11 08:57:35.786] [info] Frame 69 (t = 0.69):	 total squared error = 0.260379, marker error: RMS = 0.0721636, max = 0.226228 (XYPHOID)
+[2024-04-11 08:57:35.863] [info] Frame 70 (t = 0.7):	 total squared error = 0.264696, marker error: RMS = 0.0727593, max = 0.228498 (XYPHOID)
+[2024-04-11 08:57:35.902] [info] Frame 71 (t = 0.71):	 total squared error = 0.269026, marker error: RMS = 0.073352, max = 0.230602 (XYPHOID)
+[2024-04-11 08:57:35.972] [info] Frame 72 (t = 0.72):	 total squared error = 0.273385, marker error: RMS = 0.0739439, max = 0.232877 (XYPHOID)
+[2024-04-11 08:57:36.022] [info] Frame 73 (t = 0.73):	 total squared error = 0.280185, marker error: RMS = 0.0748579, max = 0.236357 (XYPHOID)
+[2024-04-11 08:57:36.132] [info] Frame 74 (t = 0.74):	 total squared error = 0.287032, marker error: RMS = 0.075767, max = 0.237191 (XYPHOID)
+[2024-04-11 08:57:36.158] [info] Frame 75 (t = 0.75):	 total squared error = 0.294539, marker error: RMS = 0.0767514, max = 0.236842 (XYPHOID)
+[2024-04-11 08:57:36.174] [info] InverseKinematicsTool completed 76 frames in 4 second(s).
+[2024-04-11 08:57:36.205] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaled_matlab.osim
+[2024-04-11 08:57:36.206] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 08:57:36.206] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 08:57:36.207] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 08:57:36.207] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 08:57:36.242] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/Participant_202_90degreecut101_r_c3d.trc (74 markers, 76 frames)
+[2024-04-11 08:57:36.263] [cout] [info] 
+               MODEL: P00X
+         coordinates: 43
+              forces: 0
+           actuators: 0
+             muscles: 0
+            analyses: 0
+              probes: 0
+              bodies: 22
+              joints: 22
+         constraints: 2
+             markers: 96
+         controllers: 0
+  contact geometries: 0
+misc modelcomponents: 0
+[2024-04-11 08:57:36.263] [info] Running tool Participant_202_90degreecut101_r_c3d...
+[2024-04-11 08:57:36.290] [info] ExternalForce::externalforce Data source being set to 
+[2024-04-11 08:57:36.308] [info] Storage: read data file = C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\IK_RESULTS_Participant_202_90degreecut101_r_c3d.mot (nr=76 nc=44)
+[2024-04-11 08:57:36.310] [info] Low-pass filtering coordinates data with a cutoff frequency of 6.0...
+[2024-04-11 08:57:36.397] [info] InverseDynamicsTool: 76 time frames in 53 millisecond(s).
+[2024-04-11 08:57:36.397] [warning] Directory 'c:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\' was specified where only file name 'ID_RESULTS_Participant_202_90degreecut101_r_c3d' is expected. The directory will be ignored. Result files will be written to directory 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/' instead.
+[2024-04-11 08:57:36.426] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/scaled_weighted_matlab.osim
+[2024-04-11 08:57:36.427] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 08:57:36.427] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 08:57:36.428] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 08:57:36.428] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 08:57:36.445] [info] Storage: read data file = C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\IK_RESULTS_Participant_202_90degreecut101_r_c3d.mot (nr=76 nc=44)
+[2024-04-11 08:57:36.451] [info] AbstractTool BODYKIN_RESULTS_ loading model generic_model.osim
+[2024-04-11 08:57:36.467] [info] Loaded model Catelli_high_hip_flexion from file generic_model.osim
+[2024-04-11 08:57:36.468] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 08:57:36.468] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 08:57:36.468] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 08:57:36.469] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 08:57:36.483] [info] No external loads will be applied (external loads file not specified).
+[2024-04-11 08:57:36.490] [info] Loading coordinates from file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\IK_RESULTS_Participant_202_90degreecut101_r_c3d.mot'.
+[2024-04-11 08:57:36.491] [info] Storage: read data file = C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\IK_RESULTS_Participant_202_90degreecut101_r_c3d.mot (nr=76 nc=44)
+[2024-04-11 08:57:36.493] [info] Low-pass filtering coordinates data with a cutoff frequency of 6.0...
+[2024-04-11 08:57:36.576] [info] AssemblySolver::track() attempt Failed: SimTK Exception thrown at Assembler.cpp:973:
+  Method Assembler::track() failed because:
+Unable to achieve required assembly error tolerance.
+Assembly error tolerance achieved: 2.4119960251312023e-08 required: 1e-10.
+[2024-04-11 08:57:36.586] [error] Model unable to assemble: AssemblySolver::assemble() Failed: SimTK Exception thrown at Assembler.cpp:897:
+  Method Assembler::assemble() failed because:
+Unable to achieve required assembly error tolerance.
+Assembly error tolerance achieved: 2.4119960251312023e-08 required: 1e-10..Model relaxing constraints and trying again.
+[2024-04-11 08:57:36.694] [info] Found 152 state vectors with time stamps ranging from -0.38 to 1.13.
+[2024-04-11 08:57:36.695] [info] Executing the analyses from 0.0 to 0.75...
+[2024-04-11 08:57:36.765] [info] Printing results of investigation BODYKIN_RESULTS_Participant_202_90degreecut101_r_c3d to C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/
+[2024-04-11 09:00:32.911] [info] Processing subject P00X...
+[2024-04-11 09:00:32.911] [info] Step 1: Loading generic model
+[2024-04-11 09:00:32.927] [info] Loaded model Catelli_high_hip_flexion from file c:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\generic_model.osim
+[2024-04-11 09:00:32.927] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 09:00:32.927] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 09:00:32.928] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 09:00:32.928] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 09:00:32.949] [info] Loading marker set from 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFoldermarkerset.xml'.
+[2024-04-11 09:00:32.991] [info] Updated markers in model Catelli_high_hip_flexion
+[2024-04-11 09:00:32.991] [info] Step 2: Scaling generic model
+[2024-04-11 09:00:33.040] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc (99 markers, 245 frames)
+[2024-04-11 09:00:33.040] [info] Measurement 'pelvis_x'
+[2024-04-11 09:00:33.040] [info] 	pair 0 (V_MidPnt_SIAS, V_MidPnt_SIPS): model = 0.166652, experimental = 0.250449
+[2024-04-11 09:00:33.040] [info] 	overall scale factor = 1.50283
+[2024-04-11 09:00:33.040] [info] Measurement 'pelvis_y'
+[2024-04-11 09:00:33.040] [info] 	pair 0 (V_Left_Hip, V_MidPnt_Pelvis): model = 0.130674, experimental = 0.138753
+[2024-04-11 09:00:33.040] [info] 	pair 1 (V_Right_Hip, V_MidPnt_Pelvis): model = 0.130674, experimental = 0.138216
+[2024-04-11 09:00:33.041] [info] 	overall scale factor = 1.05977
+[2024-04-11 09:00:33.041] [info] Measurement 'pelvis_z'
+[2024-04-11 09:00:33.041] [info] 	pair 0 (V_Right_Hip, V_Left_Hip): model = 0.15452, experimental = 0.183642
+[2024-04-11 09:00:33.041] [info] 	overall scale factor = 1.18847
+[2024-04-11 09:00:33.041] [info] Measurement 'thight_right'
+[2024-04-11 09:00:33.041] [info] 	pair 0 (V_Right_Hip, V_MidPnt_R_Knee): model = 0.404000, experimental = 0.449189
+[2024-04-11 09:00:33.041] [info] 	overall scale factor = 1.11186
+[2024-04-11 09:00:33.041] [info] Measurement 'thight_left'
+[2024-04-11 09:00:33.041] [info] 	pair 0 (V_Left_Hip, V_MidPnt_L_Knee): model = 0.404000, experimental = 0.471004
+[2024-04-11 09:00:33.041] [info] 	overall scale factor = 1.16585
+[2024-04-11 09:00:33.041] [info] Measurement 'shank_left'
+[2024-04-11 09:00:33.041] [info] 	pair 0 (V_MidPnt_L_Knee, V_MidPnt_L_Mal): model = 0.380256, experimental = 0.410084
+[2024-04-11 09:00:33.041] [info] 	overall scale factor = 1.07844
+[2024-04-11 09:00:33.041] [info] Measurement 'shank_right'
+[2024-04-11 09:00:33.041] [info] 	pair 0 (V_MidPnt_R_Knee, V_MidPnt_R_Mal): model = 0.389209, experimental = 0.416308
+[2024-04-11 09:00:33.041] [info] 	overall scale factor = 1.06963
+[2024-04-11 09:00:33.041] [info] Measurement 'foot_r'
+[2024-04-11 09:00:33.041] [info] 	pair 0 (RMC, V_MidPnt_R_MTP): model = 0.184907, experimental = 0.22445
+[2024-04-11 09:00:33.041] [info] 	overall scale factor = 1.21386
+[2024-04-11 09:00:33.041] [info] Measurement 'foot_l'
+[2024-04-11 09:00:33.041] [info] 	pair 0 (LMC, V_MidPnt_L_MTP): model = 0.184977, experimental = 0.221188
+[2024-04-11 09:00:33.041] [info] 	overall scale factor = 1.19576
+[2024-04-11 09:00:33.041] [info] Measurement 'humuerus_r'
+[2024-04-11 09:00:33.041] [info] 	pair 0 (RGH, RELBOW): model = 0.336981, experimental = 0.351862
+[2024-04-11 09:00:33.041] [info] 	overall scale factor = 1.04416
+[2024-04-11 09:00:33.042] [info] Measurement 'lowerarm_r'
+[2024-04-11 09:00:33.042] [info] 	pair 0 (RELBOW, RWRIST): model = 0.248981, experimental = 0.219643
+[2024-04-11 09:00:33.042] [info] 	overall scale factor = 0.882168
+[2024-04-11 09:00:33.042] [info] Measurement 'humerus_l'
+[2024-04-11 09:00:33.042] [info] 	pair 0 (LGH, LELBOW): model = 0.33481, experimental = 0.337392
+[2024-04-11 09:00:33.042] [info] 	overall scale factor = 1.00771
+[2024-04-11 09:00:33.042] [info] Measurement 'lowerarm_l'
+[2024-04-11 09:00:33.042] [info] 	pair 0 (LELBOW, LWRIST): model = 0.248026, experimental = 0.239483
+[2024-04-11 09:00:33.042] [info] 	overall scale factor = 0.965555
+[2024-04-11 09:00:33.042] [info] Measurement 'foot_r_x'
+[2024-04-11 09:00:33.042] [info] 	pair 0 (Pro_MidPnt_R_Mal, Pro_MidPnt_R_MTP): model = 0.105729, experimental = 0.147917
+[2024-04-11 09:00:33.042] [info] 	overall scale factor = 1.39902
+[2024-04-11 09:00:33.042] [info] Measurement 'foot_r_y'
+[2024-04-11 09:00:33.042] [info] 	pair 0 (Pro_MidPnt_R_Mal, V_MidPnt_R_Mal): model = 0.0862257, experimental = 0.111913
+[2024-04-11 09:00:33.042] [info] 	overall scale factor = 1.29791
+[2024-04-11 09:00:33.042] [info] Measurement 'foot_r_z'
+[2024-04-11 09:00:33.042] [info] 	pair 0 (V_R5MTP, V_R1MTP): model = 0.0917203, experimental = 0.0913309
+[2024-04-11 09:00:33.042] [info] 	overall scale factor = 0.995754
+[2024-04-11 09:00:33.042] [info] Measurement 'foot_l_x'
+[2024-04-11 09:00:33.042] [info] 	pair 0 (Pro_MidPnt_L_Mal, Pro_MidPnt_L_MTP): model = 0.105781, experimental = 0.14773
+[2024-04-11 09:00:33.042] [info] 	overall scale factor = 1.39657
+[2024-04-11 09:00:33.042] [info] Measurement 'foot_l_y'
+[2024-04-11 09:00:33.042] [info] 	pair 0 (Pro_MidPnt_L_Mal, V_MidPnt_L_Mal): model = 0.0944144, experimental = 0.116912
+[2024-04-11 09:00:33.042] [info] 	overall scale factor = 1.23829
+[2024-04-11 09:00:33.042] [info] Measurement 'foot_l_z'
+[2024-04-11 09:00:33.042] [info] 	pair 0 (V_L5MTP, V_L1MTP): model = 0.089236, experimental = 0.0923839
+[2024-04-11 09:00:33.043] [info] 	overall scale factor = 1.03528
+[2024-04-11 09:00:33.043] [info] Measurement 'torso_x'
+[2024-04-11 09:00:33.043] [info] 	pair 0 (V_MidPnt_SIAS, V_MidPnt_SIPS): model = 0.166652, experimental = 0.250449
+[2024-04-11 09:00:33.043] [info] 	overall scale factor = 1.50283
+[2024-04-11 09:00:33.043] [info] Measurement 'torso_y'
+[2024-04-11 09:00:33.043] [info] 	pair 0 (V_MidPnt_Pelvis, C7): model = 0.480138, experimental = 0.511272
+[2024-04-11 09:00:33.043] [info] 	overall scale factor = 1.06484
+[2024-04-11 09:00:33.043] [info] Measurement 'torso_z'
+[2024-04-11 09:00:33.043] [info] 	pair 0 (RGH, LGH): model = 0.276373, experimental = 0.410513
+[2024-04-11 09:00:33.043] [info] 	overall scale factor = 1.48536
+[2024-04-11 09:00:33.128] [info] Wrote model file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaled_matlab.osim' from model.
+[2024-04-11 09:00:33.129] [info] Wrote scale file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaleSet_applied.xml' for model P00X.
+[2024-04-11 09:00:33.129] [info] Step 3: Placing markers on model
+[2024-04-11 09:00:33.196] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc (99 markers, 245 frames)
+[2024-04-11 09:00:33.197] [info] Averaged frames from time 0.0 to 2.44 in C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc (frames 1 to 245)
+[2024-04-11 09:00:33.197] [info] Deleted 0 unused markers from model P00X.
+[2024-04-11 09:00:33.282] [info] Frame at (t = 0.0):	 total squared error = 0.0370815, marker error: RMS = 0.0340411, max = 0.0795933 (RLE)
+[2024-04-11 09:00:33.283] [info] Moved markers in model P00X to match locations in marker file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc'.
+[2024-04-11 09:00:33.305] [info] Wrote model file '\scaled_weighted_matlab.osim' from model P00X.
+[2024-04-11 09:00:33.308] [info] Wrote marker file '\MarkerSet_after_scale.xml' from model P00X.
+[2024-04-11 09:00:33.357] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/scaled_weighted_matlab.osim
+[2024-04-11 09:00:33.358] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 09:00:33.358] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 09:00:33.359] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 09:00:33.359] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 09:00:45.034] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaled_matlab.osim
+[2024-04-11 09:00:45.034] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 09:00:45.035] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 09:00:45.035] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 09:00:45.036] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 09:00:45.078] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/Participant_202_90degreecut101_r_c3d_c3d.trc (74 markers, 76 frames)
+[2024-04-11 09:00:45.087] [cout] [info] 
+               MODEL: P00X
+         coordinates: 43
+              forces: 0
+           actuators: 0
+             muscles: 0
+            analyses: 0
+              probes: 0
+              bodies: 22
+              joints: 22
+         constraints: 2
+             markers: 96
+         controllers: 0
+  contact geometries: 0
+misc modelcomponents: 0
+[2024-04-11 09:00:45.087] [info] Running tool Participant_202_90degreecut101_r_c3d_c3d.
+[2024-04-11 09:00:45.662] [info] Frame 0 (t = 0.0):	 total squared error = 0.221312, marker error: RMS = 0.0665301, max = 0.205124 (STERNUM)
+[2024-04-11 09:00:45.775] [info] Frame 1 (t = 0.01):	 total squared error = 0.224928, marker error: RMS = 0.0670713, max = 0.206664 (STERNUM)
+[2024-04-11 09:00:45.810] [info] Frame 2 (t = 0.02):	 total squared error = 0.228431, marker error: RMS = 0.0675915, max = 0.206481 (STERNUM)
+[2024-04-11 09:00:45.854] [info] Frame 3 (t = 0.03):	 total squared error = 0.232292, marker error: RMS = 0.0681603, max = 0.205323 (XYPHOID)
+[2024-04-11 09:00:45.888] [info] Frame 4 (t = 0.04):	 total squared error = 0.234694, marker error: RMS = 0.0685119, max = 0.208947 (XYPHOID)
+[2024-04-11 09:00:45.921] [info] Frame 5 (t = 0.05):	 total squared error = 0.235465, marker error: RMS = 0.0686244, max = 0.210086 (XYPHOID)
+[2024-04-11 09:00:45.972] [info] Frame 6 (t = 0.06):	 total squared error = 0.236835, marker error: RMS = 0.0688237, max = 0.210192 (XYPHOID)
+[2024-04-11 09:00:46.008] [info] Frame 7 (t = 0.07):	 total squared error = 0.23639, marker error: RMS = 0.068759, max = 0.209995 (XYPHOID)
+[2024-04-11 09:00:46.044] [info] Frame 8 (t = 0.08):	 total squared error = 0.235107, marker error: RMS = 0.0685722, max = 0.209288 (XYPHOID)
+[2024-04-11 09:00:46.093] [info] Frame 9 (t = 0.09):	 total squared error = 0.233468, marker error: RMS = 0.0683327, max = 0.207953 (XYPHOID)
+[2024-04-11 09:00:46.134] [info] Frame 10 (t = 0.1):	 total squared error = 0.230916, marker error: RMS = 0.0679582, max = 0.205950 (XYPHOID)
+[2024-04-11 09:00:46.201] [info] Frame 11 (t = 0.11):	 total squared error = 0.228268, marker error: RMS = 0.0675675, max = 0.203479 (XYPHOID)
+[2024-04-11 09:00:46.241] [info] Frame 12 (t = 0.12):	 total squared error = 0.226277, marker error: RMS = 0.0672722, max = 0.201187 (XYPHOID)
+[2024-04-11 09:00:46.299] [info] Frame 13 (t = 0.13):	 total squared error = 0.224719, marker error: RMS = 0.0670402, max = 0.198217 (XYPHOID)
+[2024-04-11 09:00:46.349] [info] Frame 14 (t = 0.14):	 total squared error = 0.223733, marker error: RMS = 0.0668929, max = 0.197512 (STERNUM)
+[2024-04-11 09:00:46.405] [info] Frame 15 (t = 0.15):	 total squared error = 0.222197, marker error: RMS = 0.0666629, max = 0.196756 (STERNUM)
+[2024-04-11 09:00:46.452] [info] Frame 16 (t = 0.16):	 total squared error = 0.221257, marker error: RMS = 0.0665218, max = 0.196393 (STERNUM)
+[2024-04-11 09:00:46.545] [info] Frame 17 (t = 0.17):	 total squared error = 0.221197, marker error: RMS = 0.0665127, max = 0.195603 (STERNUM)
+[2024-04-11 09:00:46.616] [info] Frame 18 (t = 0.18):	 total squared error = 0.222092, marker error: RMS = 0.0666471, max = 0.194433 (STERNUM)
+[2024-04-11 09:00:46.737] [info] Frame 19 (t = 0.19):	 total squared error = 0.223728, marker error: RMS = 0.0668921, max = 0.193237 (STERNUM)
+[2024-04-11 09:00:46.808] [info] Frame 20 (t = 0.2):	 total squared error = 0.224918, marker error: RMS = 0.0670698, max = 0.192072 (STERNUM)
+[2024-04-11 09:00:47.046] [info] Frame 21 (t = 0.21):	 total squared error = 0.226377, marker error: RMS = 0.0672869, max = 0.192254 (XYPHOID)
+[2024-04-11 09:00:47.095] [info] Frame 22 (t = 0.22):	 total squared error = 0.229378, marker error: RMS = 0.0677315, max = 0.194494 (XYPHOID)
+[2024-04-11 09:00:47.146] [info] Frame 23 (t = 0.23):	 total squared error = 0.232045, marker error: RMS = 0.0681241, max = 0.196841 (XYPHOID)
+[2024-04-11 09:00:47.180] [info] Frame 24 (t = 0.24):	 total squared error = 0.233674, marker error: RMS = 0.0683628, max = 0.199001 (XYPHOID)
+[2024-04-11 09:00:47.234] [info] Frame 25 (t = 0.25):	 total squared error = 0.233636, marker error: RMS = 0.0683573, max = 0.200990 (XYPHOID)
+[2024-04-11 09:00:47.279] [info] Frame 26 (t = 0.26):	 total squared error = 0.23317, marker error: RMS = 0.0682891, max = 0.203202 (XYPHOID)
+[2024-04-11 09:00:47.320] [info] Frame 27 (t = 0.27):	 total squared error = 0.23592, marker error: RMS = 0.0686907, max = 0.205510 (XYPHOID)
+[2024-04-11 09:00:47.365] [info] Frame 28 (t = 0.28):	 total squared error = 0.236317, marker error: RMS = 0.0687483, max = 0.208600 (XYPHOID)
+[2024-04-11 09:00:47.443] [info] Frame 29 (t = 0.29):	 total squared error = 0.235307, marker error: RMS = 0.0686014, max = 0.211837 (XYPHOID)
+[2024-04-11 09:00:47.491] [info] Frame 30 (t = 0.3):	 total squared error = 0.23579, marker error: RMS = 0.0686716, max = 0.215202 (XYPHOID)
+[2024-04-11 09:00:47.528] [info] Frame 31 (t = 0.31):	 total squared error = 0.236825, marker error: RMS = 0.0688223, max = 0.218567 (XYPHOID)
+[2024-04-11 09:00:47.569] [info] Frame 32 (t = 0.32):	 total squared error = 0.238073, marker error: RMS = 0.0690034, max = 0.222097 (XYPHOID)
+[2024-04-11 09:00:47.609] [info] Frame 33 (t = 0.33):	 total squared error = 0.237918, marker error: RMS = 0.0689809, max = 0.223055 (XYPHOID)
+[2024-04-11 09:00:47.675] [info] Frame 34 (t = 0.34):	 total squared error = 0.235916, marker error: RMS = 0.06869, max = 0.222014 (XYPHOID)
+[2024-04-11 09:00:47.827] [info] Frame 35 (t = 0.35):	 total squared error = 0.228559, marker error: RMS = 0.0676105, max = 0.232683 (XYPHOID)
+[2024-04-11 09:00:47.880] [info] Frame 36 (t = 0.36):	 total squared error = 0.225281, marker error: RMS = 0.0671239, max = 0.225236 (XYPHOID)
+[2024-04-11 09:00:47.912] [info] Frame 37 (t = 0.37):	 total squared error = 0.22331, marker error: RMS = 0.0668297, max = 0.219149 (XYPHOID)
+[2024-04-11 09:00:47.945] [info] Frame 38 (t = 0.38):	 total squared error = 0.22194, marker error: RMS = 0.0666243, max = 0.214667 (XYPHOID)
+[2024-04-11 09:00:47.998] [info] Frame 39 (t = 0.39):	 total squared error = 0.221791, marker error: RMS = 0.0666019, max = 0.211497 (XYPHOID)
+[2024-04-11 09:00:48.053] [info] Frame 40 (t = 0.4):	 total squared error = 0.222876, marker error: RMS = 0.0667646, max = 0.209717 (XYPHOID)
+[2024-04-11 09:00:48.078] [info] Frame 41 (t = 0.41):	 total squared error = 0.22557, marker error: RMS = 0.067167, max = 0.209821 (XYPHOID)
+[2024-04-11 09:00:48.171] [info] Frame 42 (t = 0.42):	 total squared error = 0.22958, marker error: RMS = 0.0677614, max = 0.21228 (XYPHOID)
+[2024-04-11 09:00:48.246] [info] Frame 43 (t = 0.43):	 total squared error = 0.235178, marker error: RMS = 0.0685825, max = 0.215316 (XYPHOID)
+[2024-04-11 09:00:48.281] [info] Frame 44 (t = 0.44):	 total squared error = 0.242222, marker error: RMS = 0.0696020, max = 0.218944 (XYPHOID)
+[2024-04-11 09:00:48.388] [info] Frame 45 (t = 0.45):	 total squared error = 0.250620, marker error: RMS = 0.0707983, max = 0.222386 (XYPHOID)
+[2024-04-11 09:00:48.445] [info] Frame 46 (t = 0.46):	 total squared error = 0.260900, marker error: RMS = 0.0722357, max = 0.226417 (XYPHOID)
+[2024-04-11 09:00:48.520] [info] Frame 47 (t = 0.47):	 total squared error = 0.272884, marker error: RMS = 0.0738761, max = 0.231271 (XYPHOID)
+[2024-04-11 09:00:48.550] [info] Frame 48 (t = 0.48):	 total squared error = 0.28583, marker error: RMS = 0.0756082, max = 0.236761 (XYPHOID)
+[2024-04-11 09:00:48.614] [info] Frame 49 (t = 0.49):	 total squared error = 0.29721, marker error: RMS = 0.0770987, max = 0.238539 (XYPHOID)
+[2024-04-11 09:00:48.653] [info] Frame 50 (t = 0.5):	 total squared error = 0.306866, marker error: RMS = 0.078341, max = 0.239859 (XYPHOID)
+[2024-04-11 09:00:48.697] [info] Frame 51 (t = 0.51):	 total squared error = 0.315996, marker error: RMS = 0.079498, max = 0.241255 (XYPHOID)
+[2024-04-11 09:00:48.735] [info] Frame 52 (t = 0.52):	 total squared error = 0.323155, marker error: RMS = 0.0803934, max = 0.244094 (XYPHOID)
+[2024-04-11 09:00:48.802] [info] Frame 53 (t = 0.53):	 total squared error = 0.325747, marker error: RMS = 0.0807152, max = 0.246638 (XYPHOID)
+[2024-04-11 09:00:48.840] [info] Frame 54 (t = 0.54):	 total squared error = 0.324402, marker error: RMS = 0.0805483, max = 0.247593 (XYPHOID)
+[2024-04-11 09:00:48.867] [info] Frame 55 (t = 0.55):	 total squared error = 0.32198, marker error: RMS = 0.0802471, max = 0.247032 (XYPHOID)
+[2024-04-11 09:00:48.932] [info] Frame 56 (t = 0.56):	 total squared error = 0.319091, marker error: RMS = 0.0798862, max = 0.246342 (XYPHOID)
+[2024-04-11 09:00:48.967] [info] Frame 57 (t = 0.57):	 total squared error = 0.315891, marker error: RMS = 0.0794847, max = 0.245195 (XYPHOID)
+[2024-04-11 09:00:49.024] [info] Frame 58 (t = 0.58):	 total squared error = 0.315863, marker error: RMS = 0.0794812, max = 0.243949 (XYPHOID)
+[2024-04-11 09:00:49.091] [info] Frame 59 (t = 0.59):	 total squared error = 0.313457, marker error: RMS = 0.0791779, max = 0.242411 (XYPHOID)
+[2024-04-11 09:00:49.154] [info] Frame 60 (t = 0.6):	 total squared error = 0.308180, marker error: RMS = 0.0785086, max = 0.240134 (XYPHOID)
+[2024-04-11 09:00:49.193] [info] Frame 61 (t = 0.61):	 total squared error = 0.299188, marker error: RMS = 0.0773547, max = 0.237538 (XYPHOID)
+[2024-04-11 09:00:49.250] [info] Frame 62 (t = 0.62):	 total squared error = 0.288761, marker error: RMS = 0.0759948, max = 0.235417 (XYPHOID)
+[2024-04-11 09:00:49.363] [info] Frame 63 (t = 0.63):	 total squared error = 0.276365, marker error: RMS = 0.0743458, max = 0.233756 (XYPHOID)
+[2024-04-11 09:00:49.399] [info] Frame 64 (t = 0.64):	 total squared error = 0.265467, marker error: RMS = 0.0728652, max = 0.229468 (XYPHOID)
+[2024-04-11 09:00:49.442] [info] Frame 65 (t = 0.65):	 total squared error = 0.257218, marker error: RMS = 0.0717242, max = 0.22369 (XYPHOID)
+[2024-04-11 09:00:49.506] [info] Frame 66 (t = 0.66):	 total squared error = 0.253073, marker error: RMS = 0.0711439, max = 0.220329 (XYPHOID)
+[2024-04-11 09:00:49.545] [info] Frame 67 (t = 0.67):	 total squared error = 0.253116, marker error: RMS = 0.07115, max = 0.220469 (XYPHOID)
+[2024-04-11 09:00:49.659] [info] Frame 68 (t = 0.68):	 total squared error = 0.256161, marker error: RMS = 0.0715767, max = 0.223015 (XYPHOID)
+[2024-04-11 09:00:49.731] [info] Frame 69 (t = 0.69):	 total squared error = 0.260491, marker error: RMS = 0.0721791, max = 0.225924 (XYPHOID)
+[2024-04-11 09:00:49.830] [info] Frame 70 (t = 0.7):	 total squared error = 0.264761, marker error: RMS = 0.0727682, max = 0.228431 (XYPHOID)
+[2024-04-11 09:00:49.869] [info] Frame 71 (t = 0.71):	 total squared error = 0.269098, marker error: RMS = 0.0733618, max = 0.230545 (XYPHOID)
+[2024-04-11 09:00:49.907] [info] Frame 72 (t = 0.72):	 total squared error = 0.273618, marker error: RMS = 0.0739754, max = 0.233142 (XYPHOID)
+[2024-04-11 09:00:50.003] [info] Frame 73 (t = 0.73):	 total squared error = 0.280405, marker error: RMS = 0.0748872, max = 0.235987 (XYPHOID)
+[2024-04-11 09:00:50.102] [info] Frame 74 (t = 0.74):	 total squared error = 0.287389, marker error: RMS = 0.0758141, max = 0.237094 (XYPHOID)
+[2024-04-11 09:00:50.185] [info] Frame 75 (t = 0.75):	 total squared error = 0.294703, marker error: RMS = 0.0767728, max = 0.236288 (XYPHOID)
+[2024-04-11 09:00:50.203] [info] InverseKinematicsTool completed 76 frames in 5 second(s).
+[2024-04-11 09:00:50.224] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaled_matlab.osim
+[2024-04-11 09:00:50.225] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 09:00:50.225] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 09:00:50.226] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 09:00:50.226] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 09:00:50.266] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/Participant_202_90degreecut101_r_c3d_c3d.trc (74 markers, 76 frames)
+[2024-04-11 09:00:50.273] [cout] [info] 
+               MODEL: P00X
+         coordinates: 43
+              forces: 0
+           actuators: 0
+             muscles: 0
+            analyses: 0
+              probes: 0
+              bodies: 22
+              joints: 22
+         constraints: 2
+             markers: 96
+         controllers: 0
+  contact geometries: 0
+misc modelcomponents: 0
+[2024-04-11 09:00:50.273] [info] Running tool Participant_202_90degreecut101_r_c3d_c3d...
+[2024-04-11 09:00:50.298] [info] ExternalForce::externalforce Data source being set to 
+[2024-04-11 09:00:50.313] [info] Storage: read data file = C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\IK_RESULTS_Participant_202_90degreecut101_r_c3d_c3d.mot (nr=76 nc=44)
+[2024-04-11 09:00:50.315] [info] Low-pass filtering coordinates data with a cutoff frequency of 6.0...
+[2024-04-11 09:00:50.397] [info] InverseDynamicsTool: 76 time frames in 51 millisecond(s).
+[2024-04-11 09:00:50.397] [warning] Directory 'c:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\' was specified where only file name 'ID_RESULTS_Participant_202_90degreecut101_r_c3d_c3d' is expected. The directory will be ignored. Result files will be written to directory 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/' instead.
+[2024-04-11 09:00:50.420] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/scaled_weighted_matlab.osim
+[2024-04-11 09:00:50.420] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 09:00:50.421] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 09:00:50.421] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 09:00:50.421] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 09:00:50.432] [info] Storage: read data file = C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\IK_RESULTS_Participant_202_90degreecut101_r_c3d_c3d.mot (nr=76 nc=44)
+[2024-04-11 09:00:50.435] [info] AbstractTool BODYKIN_RESULTS_ loading model generic_model.osim
+[2024-04-11 09:00:50.451] [info] Loaded model Catelli_high_hip_flexion from file generic_model.osim
+[2024-04-11 09:00:50.451] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 09:00:50.452] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 09:00:50.452] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 09:00:50.452] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 09:00:50.460] [info] No external loads will be applied (external loads file not specified).
+[2024-04-11 09:00:50.467] [info] Loading coordinates from file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\IK_RESULTS_Participant_202_90degreecut101_r_c3d_c3d.mot'.
+[2024-04-11 09:00:50.467] [info] Storage: read data file = C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\IK_RESULTS_Participant_202_90degreecut101_r_c3d_c3d.mot (nr=76 nc=44)
+[2024-04-11 09:00:50.469] [info] Low-pass filtering coordinates data with a cutoff frequency of 6.0...
+[2024-04-11 09:00:50.553] [info] AssemblySolver::track() attempt Failed: SimTK Exception thrown at Assembler.cpp:973:
+  Method Assembler::track() failed because:
+Unable to achieve required assembly error tolerance.
+Assembly error tolerance achieved: 2.3601450571675286e-08 required: 1e-10.
+[2024-04-11 09:00:50.562] [error] Model unable to assemble: AssemblySolver::assemble() Failed: SimTK Exception thrown at Assembler.cpp:897:
+  Method Assembler::assemble() failed because:
+Unable to achieve required assembly error tolerance.
+Assembly error tolerance achieved: 2.3601450571675286e-08 required: 1e-10..Model relaxing constraints and trying again.
+[2024-04-11 09:00:50.674] [info] Found 152 state vectors with time stamps ranging from -0.38 to 1.13.
+[2024-04-11 09:00:50.674] [info] Executing the analyses from 0.0 to 0.75...
+[2024-04-11 09:00:50.739] [info] Printing results of investigation BODYKIN_RESULTS_Participant_202_90degreecut101_r_c3d_c3d to C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/
+[2024-04-11 09:02:40.111] [info] Processing subject P00X...
+[2024-04-11 09:02:40.111] [info] Step 1: Loading generic model
+[2024-04-11 09:02:40.126] [info] Loaded model Catelli_high_hip_flexion from file c:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\generic_model.osim
+[2024-04-11 09:02:40.127] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 09:02:40.127] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 09:02:40.127] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 09:02:40.128] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 09:02:40.148] [info] Loading marker set from 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFoldermarkerset.xml'.
+[2024-04-11 09:02:40.191] [info] Updated markers in model Catelli_high_hip_flexion
+[2024-04-11 09:02:40.191] [info] Step 2: Scaling generic model
+[2024-04-11 09:02:40.239] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc (99 markers, 245 frames)
+[2024-04-11 09:02:40.239] [info] Measurement 'pelvis_x'
+[2024-04-11 09:02:40.239] [info] 	pair 0 (V_MidPnt_SIAS, V_MidPnt_SIPS): model = 0.166652, experimental = 0.250449
+[2024-04-11 09:02:40.239] [info] 	overall scale factor = 1.50283
+[2024-04-11 09:02:40.239] [info] Measurement 'pelvis_y'
+[2024-04-11 09:02:40.239] [info] 	pair 0 (V_Left_Hip, V_MidPnt_Pelvis): model = 0.130674, experimental = 0.138753
+[2024-04-11 09:02:40.239] [info] 	pair 1 (V_Right_Hip, V_MidPnt_Pelvis): model = 0.130674, experimental = 0.138216
+[2024-04-11 09:02:40.239] [info] 	overall scale factor = 1.05977
+[2024-04-11 09:02:40.239] [info] Measurement 'pelvis_z'
+[2024-04-11 09:02:40.239] [info] 	pair 0 (V_Right_Hip, V_Left_Hip): model = 0.15452, experimental = 0.183642
+[2024-04-11 09:02:40.239] [info] 	overall scale factor = 1.18847
+[2024-04-11 09:02:40.239] [info] Measurement 'thight_right'
+[2024-04-11 09:02:40.239] [info] 	pair 0 (V_Right_Hip, V_MidPnt_R_Knee): model = 0.404000, experimental = 0.449189
+[2024-04-11 09:02:40.239] [info] 	overall scale factor = 1.11186
+[2024-04-11 09:02:40.239] [info] Measurement 'thight_left'
+[2024-04-11 09:02:40.239] [info] 	pair 0 (V_Left_Hip, V_MidPnt_L_Knee): model = 0.404000, experimental = 0.471004
+[2024-04-11 09:02:40.239] [info] 	overall scale factor = 1.16585
+[2024-04-11 09:02:40.239] [info] Measurement 'shank_left'
+[2024-04-11 09:02:40.240] [info] 	pair 0 (V_MidPnt_L_Knee, V_MidPnt_L_Mal): model = 0.380256, experimental = 0.410084
+[2024-04-11 09:02:40.240] [info] 	overall scale factor = 1.07844
+[2024-04-11 09:02:40.240] [info] Measurement 'shank_right'
+[2024-04-11 09:02:40.240] [info] 	pair 0 (V_MidPnt_R_Knee, V_MidPnt_R_Mal): model = 0.389209, experimental = 0.416308
+[2024-04-11 09:02:40.240] [info] 	overall scale factor = 1.06963
+[2024-04-11 09:02:40.240] [info] Measurement 'foot_r'
+[2024-04-11 09:02:40.240] [info] 	pair 0 (RMC, V_MidPnt_R_MTP): model = 0.184907, experimental = 0.22445
+[2024-04-11 09:02:40.240] [info] 	overall scale factor = 1.21386
+[2024-04-11 09:02:40.240] [info] Measurement 'foot_l'
+[2024-04-11 09:02:40.240] [info] 	pair 0 (LMC, V_MidPnt_L_MTP): model = 0.184977, experimental = 0.221188
+[2024-04-11 09:02:40.240] [info] 	overall scale factor = 1.19576
+[2024-04-11 09:02:40.240] [info] Measurement 'humuerus_r'
+[2024-04-11 09:02:40.240] [info] 	pair 0 (RGH, RELBOW): model = 0.336981, experimental = 0.351862
+[2024-04-11 09:02:40.240] [info] 	overall scale factor = 1.04416
+[2024-04-11 09:02:40.240] [info] Measurement 'lowerarm_r'
+[2024-04-11 09:02:40.240] [info] 	pair 0 (RELBOW, RWRIST): model = 0.248981, experimental = 0.219643
+[2024-04-11 09:02:40.240] [info] 	overall scale factor = 0.882168
+[2024-04-11 09:02:40.240] [info] Measurement 'humerus_l'
+[2024-04-11 09:02:40.240] [info] 	pair 0 (LGH, LELBOW): model = 0.33481, experimental = 0.337392
+[2024-04-11 09:02:40.240] [info] 	overall scale factor = 1.00771
+[2024-04-11 09:02:40.240] [info] Measurement 'lowerarm_l'
+[2024-04-11 09:02:40.240] [info] 	pair 0 (LELBOW, LWRIST): model = 0.248026, experimental = 0.239483
+[2024-04-11 09:02:40.240] [info] 	overall scale factor = 0.965555
+[2024-04-11 09:02:40.240] [info] Measurement 'foot_r_x'
+[2024-04-11 09:02:40.240] [info] 	pair 0 (Pro_MidPnt_R_Mal, Pro_MidPnt_R_MTP): model = 0.105729, experimental = 0.147917
+[2024-04-11 09:02:40.240] [info] 	overall scale factor = 1.39902
+[2024-04-11 09:02:40.241] [info] Measurement 'foot_r_y'
+[2024-04-11 09:02:40.241] [info] 	pair 0 (Pro_MidPnt_R_Mal, V_MidPnt_R_Mal): model = 0.0862257, experimental = 0.111913
+[2024-04-11 09:02:40.241] [info] 	overall scale factor = 1.29791
+[2024-04-11 09:02:40.241] [info] Measurement 'foot_r_z'
+[2024-04-11 09:02:40.241] [info] 	pair 0 (V_R5MTP, V_R1MTP): model = 0.0917203, experimental = 0.0913309
+[2024-04-11 09:02:40.241] [info] 	overall scale factor = 0.995754
+[2024-04-11 09:02:40.241] [info] Measurement 'foot_l_x'
+[2024-04-11 09:02:40.241] [info] 	pair 0 (Pro_MidPnt_L_Mal, Pro_MidPnt_L_MTP): model = 0.105781, experimental = 0.14773
+[2024-04-11 09:02:40.241] [info] 	overall scale factor = 1.39657
+[2024-04-11 09:02:40.241] [info] Measurement 'foot_l_y'
+[2024-04-11 09:02:40.241] [info] 	pair 0 (Pro_MidPnt_L_Mal, V_MidPnt_L_Mal): model = 0.0944144, experimental = 0.116912
+[2024-04-11 09:02:40.241] [info] 	overall scale factor = 1.23829
+[2024-04-11 09:02:40.241] [info] Measurement 'foot_l_z'
+[2024-04-11 09:02:40.241] [info] 	pair 0 (V_L5MTP, V_L1MTP): model = 0.089236, experimental = 0.0923839
+[2024-04-11 09:02:40.241] [info] 	overall scale factor = 1.03528
+[2024-04-11 09:02:40.241] [info] Measurement 'torso_x'
+[2024-04-11 09:02:40.241] [info] 	pair 0 (V_MidPnt_SIAS, V_MidPnt_SIPS): model = 0.166652, experimental = 0.250449
+[2024-04-11 09:02:40.241] [info] 	overall scale factor = 1.50283
+[2024-04-11 09:02:40.241] [info] Measurement 'torso_y'
+[2024-04-11 09:02:40.241] [info] 	pair 0 (V_MidPnt_Pelvis, C7): model = 0.480138, experimental = 0.511272
+[2024-04-11 09:02:40.241] [info] 	overall scale factor = 1.06484
+[2024-04-11 09:02:40.241] [info] Measurement 'torso_z'
+[2024-04-11 09:02:40.241] [info] 	pair 0 (RGH, LGH): model = 0.276373, experimental = 0.410513
+[2024-04-11 09:02:40.241] [info] 	overall scale factor = 1.48536
+[2024-04-11 09:02:40.325] [info] Wrote model file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaled_matlab.osim' from model.
+[2024-04-11 09:02:40.326] [info] Wrote scale file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaleSet_applied.xml' for model P00X.
+[2024-04-11 09:02:40.326] [info] Step 3: Placing markers on model
+[2024-04-11 09:02:40.393] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc (99 markers, 245 frames)
+[2024-04-11 09:02:40.393] [info] Averaged frames from time 0.0 to 2.44 in C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc (frames 1 to 245)
+[2024-04-11 09:02:40.393] [info] Deleted 0 unused markers from model P00X.
+[2024-04-11 09:02:40.481] [info] Frame at (t = 0.0):	 total squared error = 0.0370815, marker error: RMS = 0.0340411, max = 0.0795933 (RLE)
+[2024-04-11 09:02:40.481] [info] Moved markers in model P00X to match locations in marker file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\Participant_202_neutral101.trc'.
+[2024-04-11 09:02:40.504] [info] Wrote model file '\scaled_weighted_matlab.osim' from model P00X.
+[2024-04-11 09:02:40.508] [info] Wrote marker file '\MarkerSet_after_scale.xml' from model P00X.
+[2024-04-11 09:02:40.555] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/scaled_weighted_matlab.osim
+[2024-04-11 09:02:40.556] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 09:02:40.556] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 09:02:40.557] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 09:02:40.557] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 09:02:59.459] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaled_matlab.osim
+[2024-04-11 09:02:59.459] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 09:02:59.460] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 09:02:59.460] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 09:02:59.460] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 09:02:59.489] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/Participant_202_90degreecut101_r_c3d_c3d.trc (74 markers, 76 frames)
+[2024-04-11 09:02:59.494] [cout] [info] 
+               MODEL: P00X
+         coordinates: 43
+              forces: 0
+           actuators: 0
+             muscles: 0
+            analyses: 0
+              probes: 0
+              bodies: 22
+              joints: 22
+         constraints: 2
+             markers: 96
+         controllers: 0
+  contact geometries: 0
+misc modelcomponents: 0
+[2024-04-11 09:02:59.494] [info] Running tool Participant_202_90degreecut101_r_c3d_c3d.
+[2024-04-11 09:03:00.022] [info] Frame 0 (t = 0.0):	 total squared error = 0.221312, marker error: RMS = 0.0665301, max = 0.205124 (STERNUM)
+[2024-04-11 09:03:00.144] [info] Frame 1 (t = 0.01):	 total squared error = 0.224928, marker error: RMS = 0.0670713, max = 0.206664 (STERNUM)
+[2024-04-11 09:03:00.179] [info] Frame 2 (t = 0.02):	 total squared error = 0.228431, marker error: RMS = 0.0675915, max = 0.206481 (STERNUM)
+[2024-04-11 09:03:00.223] [info] Frame 3 (t = 0.03):	 total squared error = 0.232292, marker error: RMS = 0.0681603, max = 0.205323 (XYPHOID)
+[2024-04-11 09:03:00.261] [info] Frame 4 (t = 0.04):	 total squared error = 0.234694, marker error: RMS = 0.0685119, max = 0.208947 (XYPHOID)
+[2024-04-11 09:03:00.296] [info] Frame 5 (t = 0.05):	 total squared error = 0.235465, marker error: RMS = 0.0686244, max = 0.210086 (XYPHOID)
+[2024-04-11 09:03:00.348] [info] Frame 6 (t = 0.06):	 total squared error = 0.236835, marker error: RMS = 0.0688237, max = 0.210192 (XYPHOID)
+[2024-04-11 09:03:00.385] [info] Frame 7 (t = 0.07):	 total squared error = 0.23639, marker error: RMS = 0.068759, max = 0.209995 (XYPHOID)
+[2024-04-11 09:03:00.420] [info] Frame 8 (t = 0.08):	 total squared error = 0.235107, marker error: RMS = 0.0685722, max = 0.209288 (XYPHOID)
+[2024-04-11 09:03:00.469] [info] Frame 9 (t = 0.09):	 total squared error = 0.233468, marker error: RMS = 0.0683327, max = 0.207953 (XYPHOID)
+[2024-04-11 09:03:00.499] [info] Frame 10 (t = 0.1):	 total squared error = 0.230916, marker error: RMS = 0.0679582, max = 0.205950 (XYPHOID)
+[2024-04-11 09:03:00.551] [info] Frame 11 (t = 0.11):	 total squared error = 0.228268, marker error: RMS = 0.0675675, max = 0.203479 (XYPHOID)
+[2024-04-11 09:03:00.587] [info] Frame 12 (t = 0.12):	 total squared error = 0.226277, marker error: RMS = 0.0672722, max = 0.201187 (XYPHOID)
+[2024-04-11 09:03:00.644] [info] Frame 13 (t = 0.13):	 total squared error = 0.224719, marker error: RMS = 0.0670402, max = 0.198217 (XYPHOID)
+[2024-04-11 09:03:00.690] [info] Frame 14 (t = 0.14):	 total squared error = 0.223733, marker error: RMS = 0.0668929, max = 0.197512 (STERNUM)
+[2024-04-11 09:03:00.741] [info] Frame 15 (t = 0.15):	 total squared error = 0.222197, marker error: RMS = 0.0666629, max = 0.196756 (STERNUM)
+[2024-04-11 09:03:00.786] [info] Frame 16 (t = 0.16):	 total squared error = 0.221257, marker error: RMS = 0.0665218, max = 0.196393 (STERNUM)
+[2024-04-11 09:03:00.873] [info] Frame 17 (t = 0.17):	 total squared error = 0.221197, marker error: RMS = 0.0665127, max = 0.195603 (STERNUM)
+[2024-04-11 09:03:00.937] [info] Frame 18 (t = 0.18):	 total squared error = 0.222092, marker error: RMS = 0.0666471, max = 0.194433 (STERNUM)
+[2024-04-11 09:03:01.005] [info] Frame 19 (t = 0.19):	 total squared error = 0.223728, marker error: RMS = 0.0668921, max = 0.193237 (STERNUM)
+[2024-04-11 09:03:01.042] [info] Frame 20 (t = 0.2):	 total squared error = 0.224918, marker error: RMS = 0.0670698, max = 0.192072 (STERNUM)
+[2024-04-11 09:03:01.155] [info] Frame 21 (t = 0.21):	 total squared error = 0.226377, marker error: RMS = 0.0672869, max = 0.192254 (XYPHOID)
+[2024-04-11 09:03:01.196] [info] Frame 22 (t = 0.22):	 total squared error = 0.229378, marker error: RMS = 0.0677315, max = 0.194494 (XYPHOID)
+[2024-04-11 09:03:01.240] [info] Frame 23 (t = 0.23):	 total squared error = 0.232045, marker error: RMS = 0.0681241, max = 0.196841 (XYPHOID)
+[2024-04-11 09:03:01.271] [info] Frame 24 (t = 0.24):	 total squared error = 0.233674, marker error: RMS = 0.0683628, max = 0.199001 (XYPHOID)
+[2024-04-11 09:03:01.324] [info] Frame 25 (t = 0.25):	 total squared error = 0.233636, marker error: RMS = 0.0683573, max = 0.200990 (XYPHOID)
+[2024-04-11 09:03:01.366] [info] Frame 26 (t = 0.26):	 total squared error = 0.23317, marker error: RMS = 0.0682891, max = 0.203202 (XYPHOID)
+[2024-04-11 09:03:01.405] [info] Frame 27 (t = 0.27):	 total squared error = 0.23592, marker error: RMS = 0.0686907, max = 0.205510 (XYPHOID)
+[2024-04-11 09:03:01.447] [info] Frame 28 (t = 0.28):	 total squared error = 0.236317, marker error: RMS = 0.0687483, max = 0.208600 (XYPHOID)
+[2024-04-11 09:03:01.523] [info] Frame 29 (t = 0.29):	 total squared error = 0.235307, marker error: RMS = 0.0686014, max = 0.211837 (XYPHOID)
+[2024-04-11 09:03:01.569] [info] Frame 30 (t = 0.3):	 total squared error = 0.23579, marker error: RMS = 0.0686716, max = 0.215202 (XYPHOID)
+[2024-04-11 09:03:01.605] [info] Frame 31 (t = 0.31):	 total squared error = 0.236825, marker error: RMS = 0.0688223, max = 0.218567 (XYPHOID)
+[2024-04-11 09:03:01.649] [info] Frame 32 (t = 0.32):	 total squared error = 0.238073, marker error: RMS = 0.0690034, max = 0.222097 (XYPHOID)
+[2024-04-11 09:03:01.693] [info] Frame 33 (t = 0.33):	 total squared error = 0.237918, marker error: RMS = 0.0689809, max = 0.223055 (XYPHOID)
+[2024-04-11 09:03:01.759] [info] Frame 34 (t = 0.34):	 total squared error = 0.235916, marker error: RMS = 0.06869, max = 0.222014 (XYPHOID)
+[2024-04-11 09:03:01.917] [info] Frame 35 (t = 0.35):	 total squared error = 0.228559, marker error: RMS = 0.0676105, max = 0.232683 (XYPHOID)
+[2024-04-11 09:03:01.971] [info] Frame 36 (t = 0.36):	 total squared error = 0.225281, marker error: RMS = 0.0671239, max = 0.225236 (XYPHOID)
+[2024-04-11 09:03:02.004] [info] Frame 37 (t = 0.37):	 total squared error = 0.22331, marker error: RMS = 0.0668297, max = 0.219149 (XYPHOID)
+[2024-04-11 09:03:02.038] [info] Frame 38 (t = 0.38):	 total squared error = 0.22194, marker error: RMS = 0.0666243, max = 0.214667 (XYPHOID)
+[2024-04-11 09:03:02.094] [info] Frame 39 (t = 0.39):	 total squared error = 0.221791, marker error: RMS = 0.0666019, max = 0.211497 (XYPHOID)
+[2024-04-11 09:03:02.149] [info] Frame 40 (t = 0.4):	 total squared error = 0.222876, marker error: RMS = 0.0667646, max = 0.209717 (XYPHOID)
+[2024-04-11 09:03:02.174] [info] Frame 41 (t = 0.41):	 total squared error = 0.22557, marker error: RMS = 0.067167, max = 0.209821 (XYPHOID)
+[2024-04-11 09:03:02.281] [info] Frame 42 (t = 0.42):	 total squared error = 0.22958, marker error: RMS = 0.0677614, max = 0.21228 (XYPHOID)
+[2024-04-11 09:03:02.375] [info] Frame 43 (t = 0.43):	 total squared error = 0.235178, marker error: RMS = 0.0685825, max = 0.215316 (XYPHOID)
+[2024-04-11 09:03:02.415] [info] Frame 44 (t = 0.44):	 total squared error = 0.242222, marker error: RMS = 0.0696020, max = 0.218944 (XYPHOID)
+[2024-04-11 09:03:02.526] [info] Frame 45 (t = 0.45):	 total squared error = 0.250620, marker error: RMS = 0.0707983, max = 0.222386 (XYPHOID)
+[2024-04-11 09:03:02.585] [info] Frame 46 (t = 0.46):	 total squared error = 0.260900, marker error: RMS = 0.0722357, max = 0.226417 (XYPHOID)
+[2024-04-11 09:03:02.667] [info] Frame 47 (t = 0.47):	 total squared error = 0.272884, marker error: RMS = 0.0738761, max = 0.231271 (XYPHOID)
+[2024-04-11 09:03:02.697] [info] Frame 48 (t = 0.48):	 total squared error = 0.28583, marker error: RMS = 0.0756082, max = 0.236761 (XYPHOID)
+[2024-04-11 09:03:02.764] [info] Frame 49 (t = 0.49):	 total squared error = 0.29721, marker error: RMS = 0.0770987, max = 0.238539 (XYPHOID)
+[2024-04-11 09:03:02.803] [info] Frame 50 (t = 0.5):	 total squared error = 0.306866, marker error: RMS = 0.078341, max = 0.239859 (XYPHOID)
+[2024-04-11 09:03:02.845] [info] Frame 51 (t = 0.51):	 total squared error = 0.315996, marker error: RMS = 0.079498, max = 0.241255 (XYPHOID)
+[2024-04-11 09:03:02.884] [info] Frame 52 (t = 0.52):	 total squared error = 0.323155, marker error: RMS = 0.0803934, max = 0.244094 (XYPHOID)
+[2024-04-11 09:03:02.952] [info] Frame 53 (t = 0.53):	 total squared error = 0.325747, marker error: RMS = 0.0807152, max = 0.246638 (XYPHOID)
+[2024-04-11 09:03:02.990] [info] Frame 54 (t = 0.54):	 total squared error = 0.324402, marker error: RMS = 0.0805483, max = 0.247593 (XYPHOID)
+[2024-04-11 09:03:03.015] [info] Frame 55 (t = 0.55):	 total squared error = 0.32198, marker error: RMS = 0.0802471, max = 0.247032 (XYPHOID)
+[2024-04-11 09:03:03.081] [info] Frame 56 (t = 0.56):	 total squared error = 0.319091, marker error: RMS = 0.0798862, max = 0.246342 (XYPHOID)
+[2024-04-11 09:03:03.117] [info] Frame 57 (t = 0.57):	 total squared error = 0.315891, marker error: RMS = 0.0794847, max = 0.245195 (XYPHOID)
+[2024-04-11 09:03:03.174] [info] Frame 58 (t = 0.58):	 total squared error = 0.315863, marker error: RMS = 0.0794812, max = 0.243949 (XYPHOID)
+[2024-04-11 09:03:03.245] [info] Frame 59 (t = 0.59):	 total squared error = 0.313457, marker error: RMS = 0.0791779, max = 0.242411 (XYPHOID)
+[2024-04-11 09:03:03.308] [info] Frame 60 (t = 0.6):	 total squared error = 0.308180, marker error: RMS = 0.0785086, max = 0.240134 (XYPHOID)
+[2024-04-11 09:03:03.347] [info] Frame 61 (t = 0.61):	 total squared error = 0.299188, marker error: RMS = 0.0773547, max = 0.237538 (XYPHOID)
+[2024-04-11 09:03:03.408] [info] Frame 62 (t = 0.62):	 total squared error = 0.288761, marker error: RMS = 0.0759948, max = 0.235417 (XYPHOID)
+[2024-04-11 09:03:03.526] [info] Frame 63 (t = 0.63):	 total squared error = 0.276365, marker error: RMS = 0.0743458, max = 0.233756 (XYPHOID)
+[2024-04-11 09:03:03.566] [info] Frame 64 (t = 0.64):	 total squared error = 0.265467, marker error: RMS = 0.0728652, max = 0.229468 (XYPHOID)
+[2024-04-11 09:03:03.609] [info] Frame 65 (t = 0.65):	 total squared error = 0.257218, marker error: RMS = 0.0717242, max = 0.22369 (XYPHOID)
+[2024-04-11 09:03:03.673] [info] Frame 66 (t = 0.66):	 total squared error = 0.253073, marker error: RMS = 0.0711439, max = 0.220329 (XYPHOID)
+[2024-04-11 09:03:03.715] [info] Frame 67 (t = 0.67):	 total squared error = 0.253116, marker error: RMS = 0.07115, max = 0.220469 (XYPHOID)
+[2024-04-11 09:03:03.829] [info] Frame 68 (t = 0.68):	 total squared error = 0.256161, marker error: RMS = 0.0715767, max = 0.223015 (XYPHOID)
+[2024-04-11 09:03:03.901] [info] Frame 69 (t = 0.69):	 total squared error = 0.260491, marker error: RMS = 0.0721791, max = 0.225924 (XYPHOID)
+[2024-04-11 09:03:04.001] [info] Frame 70 (t = 0.7):	 total squared error = 0.264761, marker error: RMS = 0.0727682, max = 0.228431 (XYPHOID)
+[2024-04-11 09:03:04.039] [info] Frame 71 (t = 0.71):	 total squared error = 0.269098, marker error: RMS = 0.0733618, max = 0.230545 (XYPHOID)
+[2024-04-11 09:03:04.078] [info] Frame 72 (t = 0.72):	 total squared error = 0.273618, marker error: RMS = 0.0739754, max = 0.233142 (XYPHOID)
+[2024-04-11 09:03:04.170] [info] Frame 73 (t = 0.73):	 total squared error = 0.280405, marker error: RMS = 0.0748872, max = 0.235987 (XYPHOID)
+[2024-04-11 09:03:04.271] [info] Frame 74 (t = 0.74):	 total squared error = 0.287389, marker error: RMS = 0.0758141, max = 0.237094 (XYPHOID)
+[2024-04-11 09:03:04.349] [info] Frame 75 (t = 0.75):	 total squared error = 0.294703, marker error: RMS = 0.0767728, max = 0.236288 (XYPHOID)
+[2024-04-11 09:03:04.361] [info] InverseKinematicsTool completed 76 frames in 4 second(s).
+[2024-04-11 09:03:04.381] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\scaled_matlab.osim
+[2024-04-11 09:03:04.381] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 09:03:04.381] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 09:03:04.382] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 09:03:04.382] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 09:03:04.412] [info] Loaded marker file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/Participant_202_90degreecut101_r_c3d_c3d.trc (74 markers, 76 frames)
+[2024-04-11 09:03:04.417] [cout] [info] 
+               MODEL: P00X
+         coordinates: 43
+              forces: 0
+           actuators: 0
+             muscles: 0
+            analyses: 0
+              probes: 0
+              bodies: 22
+              joints: 22
+         constraints: 2
+             markers: 96
+         controllers: 0
+  contact geometries: 0
+misc modelcomponents: 0
+[2024-04-11 09:03:04.417] [info] Running tool Participant_202_90degreecut101_r_c3d_c3d...
+[2024-04-11 09:03:04.438] [info] ExternalForce::externalforce Data source being set to 
+[2024-04-11 09:03:04.453] [info] Storage: read data file = C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\IK_RESULTS_Participant_202_90degreecut101_r_c3d_c3d.mot (nr=76 nc=44)
+[2024-04-11 09:03:04.455] [info] Low-pass filtering coordinates data with a cutoff frequency of 6.0...
+[2024-04-11 09:03:04.539] [info] InverseDynamicsTool: 76 time frames in 53 millisecond(s).
+[2024-04-11 09:03:04.540] [warning] Directory 'c:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\' was specified where only file name 'ID_RESULTS_Participant_202_90degreecut101_r_c3d_c3d' is expected. The directory will be ignored. Result files will be written to directory 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/' instead.
+[2024-04-11 09:03:04.564] [info] Loaded model P00X from file C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/scaled_weighted_matlab.osim
+[2024-04-11 09:03:04.565] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 09:03:04.565] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 09:03:04.565] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 09:03:04.566] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 09:03:04.577] [info] Storage: read data file = C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\IK_RESULTS_Participant_202_90degreecut101_r_c3d_c3d.mot (nr=76 nc=44)
+[2024-04-11 09:03:04.580] [info] AbstractTool BODYKIN_RESULTS_ loading model generic_model.osim
+[2024-04-11 09:03:04.596] [info] Loaded model Catelli_high_hip_flexion from file generic_model.osim
+[2024-04-11 09:03:04.597] [warning] Couldn't find file 'r_femur.vtp'.
+[2024-04-11 09:03:04.597] [warning] Couldn't find file 'r_tibia.vtp'.
+[2024-04-11 09:03:04.598] [warning] Couldn't find file 'l_femur.vtp'.
+[2024-04-11 09:03:04.598] [warning] Couldn't find file 'l_tibia.vtp'.
+[2024-04-11 09:03:04.607] [info] No external loads will be applied (external loads file not specified).
+[2024-04-11 09:03:04.613] [info] Loading coordinates from file 'C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\IK_RESULTS_Participant_202_90degreecut101_r_c3d_c3d.mot'.
+[2024-04-11 09:03:04.613] [info] Storage: read data file = C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder\IK_RESULTS_Participant_202_90degreecut101_r_c3d_c3d.mot (nr=76 nc=44)
+[2024-04-11 09:03:04.615] [info] Low-pass filtering coordinates data with a cutoff frequency of 6.0...
+[2024-04-11 09:03:04.693] [info] AssemblySolver::track() attempt Failed: SimTK Exception thrown at Assembler.cpp:973:
+  Method Assembler::track() failed because:
+Unable to achieve required assembly error tolerance.
+Assembly error tolerance achieved: 2.3601450571675286e-08 required: 1e-10.
+[2024-04-11 09:03:04.701] [error] Model unable to assemble: AssemblySolver::assemble() Failed: SimTK Exception thrown at Assembler.cpp:897:
+  Method Assembler::assemble() failed because:
+Unable to achieve required assembly error tolerance.
+Assembly error tolerance achieved: 2.3601450571675286e-08 required: 1e-10..Model relaxing constraints and trying again.
+[2024-04-11 09:03:04.807] [info] Found 152 state vectors with time stamps ranging from -0.38 to 1.13.
+[2024-04-11 09:03:04.808] [info] Executing the analyses from 0.0 to 0.75...
+[2024-04-11 09:03:04.871] [info] Printing results of investigation BODYKIN_RESULTS_Participant_202_90degreecut101_r_c3d_c3d to C:\Users\adpatrick\OneDrive - nih.no\Desktop\ScanFolder/

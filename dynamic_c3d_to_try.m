@@ -47,8 +47,6 @@ if strcmp(setup_Identifier, 'CALGARY') ==1
     catch
     end
 end
-
-
 btkWriteAcquisition(acq, path)
 clearvars fpw Y Y_kinematic
 fpw = btkGetForcePlatformWrenches(acq, 1);
@@ -56,10 +54,11 @@ verticalgrf = fpw(FP_used).F(:,3);
 Y = getContact_FP_app(verticalgrf', threshold);
 Y_kinematic = unique(fix(Y/ftkratio));
 btkCloseAcquisition(acq)
-pause (0.001)
+pause (0.01)
 
 %% fill gaps
 gap_fill_markers_OLE(path, 1, OPTIONS);
+pause(0.01)
 %% reopen c3d and filter the marker --> save them into struct 
 acq = btkReadAcquisition(path);
 [markers_from_c3d,  ~, ~] = btkGetMarkers(acq);
@@ -71,7 +70,7 @@ for kev = 1 : length (markernames_c3d)
     markers_from_c3d_filt.(markernames_c3d{kev, 1})(:,3) =  filtfilt(b_filt,a_filt,markers_from_c3d.(markernames_c3d{kev, 1})(:,3));
 end
 btkCloseAcquisition(acq)
-
+pause(0.01)
 %% rotate from c3d CS in OpenSim CS convert to trc file
 c3d = osimC3D_PM(path,1);
 c3d.rotateData('x',-90)
