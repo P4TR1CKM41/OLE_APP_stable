@@ -113,6 +113,9 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
             else
                 up = 1;
             end
+            %DATA.OPTIONS.ForcePlateNumber.(trialname) = str2double(app.FPuseDropDown.Value);
+            %DATA.OPTIONS.LEG_ANALYZED.(trialname) =app.Leg2AnalyzeDropDown.Value;
+            % path_to_dyn = [app.storageglobal_path, '/', (fileList_cells{1, dy})];
             app.Label_2.Text = [fileList_cells{1, dy}];
             app.Label_2.FontColor = [0 0.5 0];
             pause(0.000000001)
@@ -134,7 +137,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                     end
                 catch ME
                     DATA.OPTIONS.FOOT_IN_FP.(trialname) =0;
-                    DATA.OPTIONS.ERROR_FOOT_ON_FORCE_PLATE.(trialname) = ME;
+                    DATA.OPTIONS.ERROR_FOOT_ON_FORCE_PLATE.(trialname) = ME; 
                     buttondlg('Could not determine if foot was placed on force plate. Are all foot markers present and the correct force plate selected?','Error','Ok', struct('Default','Continue','IconString','error'));
                 end
             else
@@ -143,15 +146,12 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
             %% check the existens of all necessary marker
             try
                 [DATA.OPTIONS.ALL_REQUIRED_MARKERS_EXIST.(trialname), DATA.OPTIONS.MISSING_MARKERS.(trialname)] = check_if_all_markers_are_there(DATA.markers_from_c3d_filt.(trialname), {DATA.OPTIONS.MARKER_SETUP.MARKERSREQUIRED{index_in_marker_set_file_excel,[2:end]}});
-                if DATA.OPTIONS.ALL_REQUIRED_MARKERS_EXIST.(trialname) ==0 
-                buttondlg([trialname, ' not processed the following markers are missing: ', DATA.OPTIONS.MISSING_MARKERS.(trialname)],'Error','Ok', struct('Default','Continue','IconString','error'));
-                end
-                catch ME
-                DATA.OPTIONS.ERROR_MARKERS.(trialname) = ME;
+            catch ME
+                DATA.OPTIONS.ERROR_MARKERS.(trialname) = ME; 
                 DATA.OPTIONS.ALL_REQUIRED_MARKERS_EXIST.(trialname)=0;
                 DATA.OPTIONS.MISSING_MARKERS.(trialname) ='all';
             end
-            %% start processing OpenSim
+           
             if DATA.OPTIONS.FOOT_IN_FP.(trialname)==1 && DATA.OPTIONS.ALL_REQUIRED_MARKERS_EXIST.(trialname) ==1 && DATA.OPTIONS.CONVERT_PASSED.(trialname) ==1
                 DATA.OPTIONS.ForcePlateNumber.(trialname) = str2double(app.FPuseDropDown.Value);
                 DATA.OPTIONS.LEG_ANALYZED.(trialname) =app.Leg2AnalyzeDropDown.Value;
@@ -202,10 +202,10 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                 for op = 1 : length(ARRAY.Properties.VariableNames)
                     DATA.PARAMETERS.(['IC_BKPOS_',ARRAY.Properties.VariableNames{op} ])(1,up)  = table2array(ARRAY(DATA.CONTACT_KINEMATIC.(trialname)(1),ARRAY.Properties.VariableNames{op}));
                 end
-                % ARRAY = DATA.GRF_TABLE.(trialname);
-                % for op = 1 : length(ARRAY.Properties.VariableNames)
-                %     DATA.PARAMETERS.(['IC_GRF_',ARRAY.Properties.VariableNames{op} ])(1,up)  = table2array(ARRAY(DATA.CONTACT_ANALOG.(trialname)(1),ARRAY.Properties.VariableNames{op}));
-                % end
+                ARRAY = DATA.GRF_TABLE.(trialname);
+                for op = 1 : length(ARRAY.Properties.VariableNames)
+                    DATA.PARAMETERS.(['IC_GRF_',ARRAY.Properties.VariableNames{op} ])(1,up)  = table2array(ARRAY(DATA.CONTACT_ANALOG.(trialname)(1),ARRAY.Properties.VariableNames{op}));
+                end
                 clearvars ARRAY
 
                 %% save some additional trial based information
@@ -249,6 +249,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                 DATA.NORMAL.KNEE_ROTATION_ANGLE(:,up) =normalize_vector((DATA.ANGLES_TABLE_FILT.(trialname).(DATA.ANGLES_TABLE_FILT.(trialname).Properties.VariableNames{string(DATA.ANGLES_TABLE_FILT.(trialname).Properties.VariableNames) == ['knee_rotation_',lower(DATA.OPTIONS.LEG.(trialname))]})(DATA.CONTACT_KINEMATIC.(trialname)(1):DATA.CONTACT_KINEMATIC.(trialname)(1)+0.1/(1/DATA.OPTIONS.FREQ_KINEMATIC))), 0.5);
                 DATA.PARAMETERS.KNEE_FLEX_AT_IC(1,up) = DATA.NORMAL.KNEE_FLEXION_ANGLE(1,up);
                 DATA.PARAMETERS.KNEE_ROTATION_AT_IC(1,up) = DATA.NORMAL.KNEE_ROTATION_ANGLE(1,up);
+
                 %% Foot strike Angle
                 [DATA.PARAMETERS.FOOT_STRIKE_PATTERN(1,up)] = kevin_foot_strike_pattern( DATA.MIDPOINT_MTP.(trialname)(DATA.CONTACT_KINEMATIC.(trialname)(1),:), DATA.markers_from_c3d_filt.(trialname).(marker3)(DATA.CONTACT_KINEMATIC.(trialname)(1),:));
                 [foot_angle_neutral] = kevin_foot_strike_pattern( DATA.MIDPOINT_MTP_REF_MARKERS, DATA.REF_MARKERS.(marker3));
@@ -309,14 +310,12 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
             delete ([app.storageglobal_path, '/',(fileList_cells{1, dy})]);
         end
         %opensimvisualizer_dynamic(DATA.OPTIONS.PATH.SCALED_MODEL,DATA.OPTIONS.PATHS.IK.(trialname),DATA.OPTIONS.GEOMETRYPATH)
-        pause(0.0000000000001)
-
         app.Label_2.Text = [fileList_cells{1, dy}];
         app.Label_2.FontColor = [0 0.5 0];
-        pause(0.0000000000001)
-
+        
         % endtime =  toc;
-        % app.Label_3.Text = [num2str(round(endtime,1)), 's'];
+        app.Label_3.Text = [num2str(round(endtime,1)), 's'];
+        pause(0.0000000000001)
     else
         pause(0.0000000000001)
         if app.InstructionsgivenCheckBox.Value==0

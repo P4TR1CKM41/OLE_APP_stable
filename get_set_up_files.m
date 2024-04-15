@@ -27,4 +27,10 @@ catch
 
 end
 
+try
+copyfile([setup_files(1).folder, '/ExternalForce_Setup_FP3_Left.xml'], [pathtopfolder, '/ExternalForce_Setup_FP3_Left.xml'])
+copyfile([setup_files(1).folder, '/ExternalForce_Setup_FP3_Right.xml'], [pathtopfolder, '/ExternalForce_Setup_FP3_Right.xml'])
+catch
+end
+
 end

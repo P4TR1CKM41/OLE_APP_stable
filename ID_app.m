@@ -40,6 +40,11 @@ elseif strcmp(leg, 'Left') && FP_used==1
     external_loads = ExternalLoads([cd, '/', 'ExternalForce_Setup_FP1_Left.xml'],1); %this is the stupid fore file
 elseif strcmp(leg, 'Left') && FP_used==2
     external_loads = ExternalLoads([cd, '/', 'ExternalForce_Setup_FP2_Left.xml'],1); %this is the stupid fore file
+elseif strcmp(leg, 'Left') && FP_used==3
+    external_loads = ExternalLoads([cd, '/', 'ExternalForce_Setup_FP3_Left.xml'],1); %this is the stupid fore file
+elseif strcmp(leg, 'Right') && FP_used==3
+    external_loads = ExternalLoads([cd, '/', 'ExternalForce_Setup_FP3_Right.xml'],1); %this is the stupid fore file
+
 end
 
 %external_loads = ExternalLoads([cd, '/', 'ExternalForce_Setup.xml'],1); %this is the stupid fore file
@@ -64,7 +69,7 @@ idTool.setEndTime(final_time);
 
 %Set output file and folder
 idTool.setOutputGenForceFileName([ path,'\ID_RESULTS_' trialname '.sto' ]);
-ID_RESULTS_PATH = [ path,'\ID_RESULTS_' trialname '.sto' ]; 
+ID_RESULTS_PATH = [ path,'\ID_RESULTS_' trialname '.sto' ];
 idTool.setResultsDir([path, '/']);
 
 % Set file containing External Loads information
