@@ -224,6 +224,8 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                 DATA.PARAMETERS.VELOCITY(:,up) = [norm([DATA.PARAMETERS.IC_BKVEL_center_of_mass_X(:,up), DATA.PARAMETERS.IC_BKVEL_center_of_mass_Z(:,up)])];
                 DATA.NORMAL.VELOCITY(:,up) = normalize_vector(vecnorm([DATA.BK_VEL_TABLE.(trialname).center_of_mass_X(DATA.CONTACT_KINEMATIC.(trialname)(1):DATA.CONTACT_KINEMATIC.(trialname)(1)+0.1/(1/DATA.OPTIONS.FREQ_KINEMATIC)),DATA.BK_VEL_TABLE.(trialname).center_of_mass_Z(DATA.CONTACT_KINEMATIC.(trialname)(1):DATA.CONTACT_KINEMATIC.(trialname)(1)+0.1/(1/DATA.OPTIONS.FREQ_KINEMATIC))],2,2),0.5)';
                 [DATA.PARAMETERS.PEAK_KNEE_X(1,up),DATA.PARAMETERS.PEAK_KNEE_X_FRAME_NORMAL(1,up)] = max( DATA.NORMAL.KAM(:,up));
+                [~, DATA.PARAMETERS.TIME_TO_PEAK_KNEE_X(1,up)] = max ((DATA.MOMENT_TABLE.(trialname).(DATA.MOMENT_TABLE.(trialname).Properties.VariableNames{string(DATA.MOMENT_TABLE.(trialname).Properties.VariableNames) == ['knee_adduction_',lower(DATA.OPTIONS.LEG.(trialname)),'_moment']})(DATA.CONTACT_KINEMATIC.(trialname)(1):DATA.CONTACT_KINEMATIC.(trialname)(1)+0.1/(1/DATA.OPTIONS.FREQ_KINEMATIC))/DATA.OPTIONS.ANTRO.mass));
+                DATA.PARAMETERS.TIME_TO_PEAK_KNEE_X(1,up) = DATA.PARAMETERS.TIME_TO_PEAK_KNEE_X(1,up)*(1/DATA.OPTIONS.FREQ_KINEMATIC);
                 %% Valgus Angle at IC
                 DATA.PARAMETERS.KNEE_VALGUS_AT_IC(1,up) = DATA.ANGLES_TABLE_FILT.(trialname).(['knee_adduction_',lower( DATA.OPTIONS.LEG.(trialname))])(DATA.CONTACT_KINEMATIC.(trialname)(1));
                 %% Contact Time
