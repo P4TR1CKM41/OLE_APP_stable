@@ -155,6 +155,15 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
             if DATA.OPTIONS.FOOT_IN_FP.(trialname)==1 && DATA.OPTIONS.ALL_REQUIRED_MARKERS_EXIST.(trialname) ==1 && DATA.OPTIONS.CONVERT_PASSED.(trialname) ==1
                 DATA.OPTIONS.ForcePlateNumber.(trialname) = str2double(app.FPuseDropDown.Value);
                 DATA.OPTIONS.LEG_ANALYZED.(trialname) =app.Leg2AnalyzeDropDown.Value;
+                %% get the shank segment angles TODO
+                % [REFFRAME, REFMARKERS,WEIGHT,  OPTIONS] = get_refinfo_GUI_mat_app(path_to_static, OPTIONS);
+                %  [FRAME.(structname).Technical.RightShank.O, FRAME.(structname).Technical.RightShank.R] = get_technical_frame_GUI_app(MARKERS.(structname).Opti.cluster_tibia_right_1.data, MARKERS.(structname).Opti.cluster_tibia_right_2.data, MARKERS.(structname).Opti.cluster_tibia_right_3.data, MARKERS.(structname).Opti.cluster_tibia_right_4.data);
+                % for g = 1:size(FRAME.(structname).Technical.RightShank.R, 3)
+                %  FRAME.(structname).Anatomical.RightShank.R(:,:,g) = FRAME.(structname).Technical.RightShank.R(:,:,g) * REFFRAME.Technical_to_Anatomical.RightShank.R;
+                %   FRAME.(structname).Anatomical.RightShank.O(:,g) = FRAME.(structname).Technical.RightShank.O(:,g) + (FRAME.(structname).Technical.RightShank.R(:,:,g) * REFFRAME.Technical_to_Anatomical.RightShank.O);
+                %  end
+                % WINKEL.(structname).SEGMENT.Classic.Right_Shank.rad = getwinkel_app(FRAME.(structname).Anatomical.RightShank.R);
+                % WINKEL.(structname).SEGMENT.Classic.Right_Shank.grad.Z = WINKEL.(structname).SEGMENT.Classic.Right_Shank.rad.Z./pi*180;
                 %% IK
                 [DATA.OPTIONS.PATHS.IK.(trialname), run_time(end+1)]=IK_app(DATA.OPTIONS.PATHS.TRC.(trialname),app.FoldertomonitorEditField.Value);
                 %% ID

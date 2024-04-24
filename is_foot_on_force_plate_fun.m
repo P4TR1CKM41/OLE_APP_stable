@@ -12,6 +12,16 @@ if strcmp(leg, 'Right') ==1
     try
         USED_MARKER_NAMES.(markerset.FOOT{row_num,7})  = markerset.FOOT{row_num,7};
     end
+    try
+        OPPOSITE_MARKERS.(markerset.FOOT{row_num,8}) = MARKERS.(markerset.FOOT{row_num,8})(TD_marker,:);
+        OPPOSITE_MARKERS.(markerset.FOOT{row_num,9}) = MARKERS.(markerset.FOOT{row_num,9})(TD_marker,:);
+        OPPOSITE_MARKERS.(markerset.FOOT{row_num,10}) = MARKERS.(markerset.FOOT{row_num,10})(TD_marker,:);
+        OPPOSITE_MARKERS.(markerset.FOOT{row_num,11}) = MARKERS.(markerset.FOOT{row_num,11})(TD_marker,:);
+        OPPOSITE_MARKERS.(markerset.FOOT{row_num,12}) = MARKERS.(markerset.FOOT{row_num,12})(TD_marker,:);
+        try
+            OPPOSITE_MARKERS.(markerset.FOOT{row_num,13}) = MARKERS.(markerset.FOOT{row_num,13})(TD_marker,:);
+        end
+    end
 else
     USED_MARKER_NAMES.(markerset.FOOT{row_num,8}) = markerset.FOOT{row_num,8};
     USED_MARKER_NAMES.(markerset.FOOT{row_num,9})  = markerset.FOOT{row_num,9};
@@ -20,6 +30,16 @@ else
     USED_MARKER_NAMES.(markerset.FOOT{row_num,12})  = markerset.FOOT{row_num,12};
     try
         USED_MARKER_NAMES.(markerset.FOOT{row_num,13})  = markerset.FOOT{row_num,13};
+    end
+    try
+        OPPOSITE_MARKERS.(markerset.FOOT{row_num,2}) = MARKERS.(markerset.FOOT{row_num,2})(TD_marker,:);
+        OPPOSITE_MARKERS.(markerset.FOOT{row_num,3}) = MARKERS.(markerset.FOOT{row_num,3})(TD_marker,:);
+        OPPOSITE_MARKERS.(markerset.FOOT{row_num,4}) = MARKERS.(markerset.FOOT{row_num,4})(TD_marker,:);
+        OPPOSITE_MARKERS.(markerset.FOOT{row_num,5}) = MARKERS.(markerset.FOOT{row_num,5})(TD_marker,:);
+        OPPOSITE_MARKERS.(markerset.FOOT{row_num,6}) = MARKERS.(markerset.FOOT{row_num,6})(TD_marker,:);
+        try
+            OPPOSITE_MARKERS.(markerset.FOOT{row_num,7}) = MARKERS.(markerset.FOOT{row_num,7})(TD_marker,:);
+        end
     end
 end
 
@@ -64,6 +84,8 @@ if length(find (in ==0) )>=1
 else
     use=1;
 end
-
-
+try
+    [answer] = is_the_other_foot_at_the_active_FP(OPPOSITE_MARKERS, corner_points_of_fp_used)
+catch
+end
 end
