@@ -206,11 +206,15 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                 ARRAY = DATA.BK_VEL_TABLE.(trialname);
                 for op = 1 : length(ARRAY.Properties.VariableNames)
                     DATA.PARAMETERS.(['IC_BKVEL_',ARRAY.Properties.VariableNames{op} ])(1,up)  = table2array(ARRAY(DATA.CONTACT_KINEMATIC.(trialname)(1),ARRAY.Properties.VariableNames{op}));
+                    DATA.PARAMETERS.(['TO_BKVEL_',ARRAY.Properties.VariableNames{op} ])(1,up)  = table2array(ARRAY(DATA.CONTACT_KINEMATIC.(trialname)(end),ARRAY.Properties.VariableNames{op}));
                 end
                 ARRAY = DATA.BK_POS_TABLE.(trialname);
                 for op = 1 : length(ARRAY.Properties.VariableNames)
                     DATA.PARAMETERS.(['IC_BKPOS_',ARRAY.Properties.VariableNames{op} ])(1,up)  = table2array(ARRAY(DATA.CONTACT_KINEMATIC.(trialname)(1),ARRAY.Properties.VariableNames{op}));
+                    DATA.PARAMETERS.(['TO_BKPOS_',ARRAY.Properties.VariableNames{op} ])(1,up)  = table2array(ARRAY(DATA.CONTACT_KINEMATIC.(trialname)(end),ARRAY.Properties.VariableNames{op}));
+
                 end
+                
                 % ARRAY = DATA.GRF_TABLE.(trialname);
                 % for op = 1 : length(ARRAY.Properties.VariableNames)
                 %     DATA.PARAMETERS.(['IC_GRF_',ARRAY.Properties.VariableNames{op} ])(1,up)  = table2array(ARRAY(DATA.CONTACT_ANALOG.(trialname)(1),ARRAY.Properties.VariableNames{op}));
@@ -231,6 +235,7 @@ while strcmp (app.ButtonGroup.SelectedObject.Text, 'Start') && (app.ButtonGroup.
                 DATA.NORMAL.KNEE_FLEX_MOMENT(:,up) = normalize_vector((DATA.MOMENT_TABLE.(trialname).(DATA.MOMENT_TABLE.(trialname).Properties.VariableNames{string(DATA.MOMENT_TABLE.(trialname).Properties.VariableNames) == ['knee_angle_',lower(DATA.OPTIONS.LEG.(trialname)),'_moment']})(DATA.CONTACT_KINEMATIC.(trialname)(1):DATA.CONTACT_KINEMATIC.(trialname)(1)+0.1/(1/DATA.OPTIONS.FREQ_KINEMATIC))/DATA.OPTIONS.ANTRO.mass), 0.5);
                 DATA.NORMAL.KNEE_ROT_MOMENT(:,up) = normalize_vector((DATA.MOMENT_TABLE.(trialname).(DATA.MOMENT_TABLE.(trialname).Properties.VariableNames{string(DATA.MOMENT_TABLE.(trialname).Properties.VariableNames) == ['knee_rotation_',lower(DATA.OPTIONS.LEG.(trialname)),'_moment']})(DATA.CONTACT_KINEMATIC.(trialname)(1):DATA.CONTACT_KINEMATIC.(trialname)(1)+0.1/(1/DATA.OPTIONS.FREQ_KINEMATIC))/DATA.OPTIONS.ANTRO.mass), 0.5);
                 DATA.PARAMETERS.VELOCITY(:,up) = [norm([DATA.PARAMETERS.IC_BKVEL_center_of_mass_X(:,up), DATA.PARAMETERS.IC_BKVEL_center_of_mass_Z(:,up)])];
+                DATA.PARAMETERS.EXIT_VELOCITY(:,up) = [norm([DATA.PARAMETERS.TO_BKVEL_center_of_mass_X(:,up), DATA.PARAMETERS.TO_BKVEL_center_of_mass_Z(:,up)])];
                 DATA.NORMAL.VELOCITY(:,up) = normalize_vector(vecnorm([DATA.BK_VEL_TABLE.(trialname).center_of_mass_X(DATA.CONTACT_KINEMATIC.(trialname)(1):DATA.CONTACT_KINEMATIC.(trialname)(1)+0.1/(1/DATA.OPTIONS.FREQ_KINEMATIC)),DATA.BK_VEL_TABLE.(trialname).center_of_mass_Z(DATA.CONTACT_KINEMATIC.(trialname)(1):DATA.CONTACT_KINEMATIC.(trialname)(1)+0.1/(1/DATA.OPTIONS.FREQ_KINEMATIC))],2,2),0.5)';
                 [DATA.PARAMETERS.PEAK_KNEE_X(1,up),DATA.PARAMETERS.PEAK_KNEE_X_FRAME_NORMAL(1,up)] = max( DATA.NORMAL.KAM(:,up));
                 [~, DATA.PARAMETERS.TIME_TO_PEAK_KNEE_X(1,up)] = max ((DATA.MOMENT_TABLE.(trialname).(DATA.MOMENT_TABLE.(trialname).Properties.VariableNames{string(DATA.MOMENT_TABLE.(trialname).Properties.VariableNames) == ['knee_adduction_',lower(DATA.OPTIONS.LEG.(trialname)),'_moment']})(DATA.CONTACT_KINEMATIC.(trialname)(1):DATA.CONTACT_KINEMATIC.(trialname)(1)+0.1/(1/DATA.OPTIONS.FREQ_KINEMATIC))/DATA.OPTIONS.ANTRO.mass));
