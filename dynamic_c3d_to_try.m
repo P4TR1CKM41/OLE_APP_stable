@@ -4,15 +4,15 @@ tic
 acq = btkReadAcquisition(path);
 pf = btkGetPointFrequency(acq);
 af = btkGetAnalogFrequency(acq);
-[forceplates, forceplatesInfo] = btkGetForcePlatforms(acq);
+[forceplates, ~] = btkGetForcePlatforms(acq);
 FP_Corner_Points_of_FP_used = forceplates((FP_used)).corners;
 ftkratio = af/pf;
 fpw = btkGetForcePlatformWrenches(acq, 1);
 verticalgrf = fpw(FP_used).F(:,3);
 Y = getContact_FP_app(verticalgrf', threshold);
 Y_kinematic = unique(fix(Y/ftkratio));
-td_analog = Y(1);
-to_analog = Y(end);
+% td_analog = Y(1);
+% to_analog = Y(end);
 ff = btkGetFirstFrame(acq);
 td_kinematic =fix( Y(1)/ftkratio);
 to_kinematic =fix(Y(end)/ftkratio);
@@ -23,14 +23,14 @@ try % skip if it is allready to short!
 end
 
 %% add Virtual MArkers of the Force plates to the c3d
-[markers, markersInfo, markersResidual] = btkGetMarkers(acq);
+[markers, ~, ~] = btkGetMarkers(acq);
 markernames = fieldnames (markers);
 try %% add force plate corners as markers
-    [forceplates, forceplatesInfo] = btkGetForcePlatforms(acq);
+    [forceplates, ~] = btkGetForcePlatforms(acq);
     for cp = 1 : length({forceplates.corners})
         for sp = 1 : length(forceplates(cp).corners)
             residuals = ones(1,length(markers.(markernames{1, 1})))';
-            [points, pointsInfo] = btkAppendPoint(acq, 'marker' , ['V_FP_',num2str(cp), '_Corner', num2str(sp)], repmat([forceplates(cp).corners(:,sp)]',length(markers.(markernames{1, 1} )),1), residuals);
+            [~, ~] = btkAppendPoint(acq, 'marker' , ['V_FP_',num2str(cp), '_Corner', num2str(sp)], repmat([forceplates(cp).corners(:,sp)]',length(markers.(markernames{1, 1} )),1), residuals);
         end
     end
 end
@@ -38,11 +38,11 @@ end
 %% remove ghost Vicon only! would delete markers labeled as "C_"
 if strcmp(setup_Identifier, 'CALGARY') ==1
     try %% remove vicon random makers
-        [markers, markersInfo, markersResidual] = btkGetMarkers(acq);
+        [markers, ~, ~] = btkGetMarkers(acq);
         markernames = fieldnames (markers);
         idxrm = sort(find(contains(markernames, 'C_')), 'descend');
         for i = 1 : length(idxrm)
-            [points, pointsInfo] = btkRemovePoint(acq, idxrm(i));
+            [~, ~] = btkRemovePoint(acq, idxrm(i));
         end
     catch
     end
